@@ -1,7 +1,10 @@
 package net.gdut.mapper;
 
+import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface TbUserMapper {

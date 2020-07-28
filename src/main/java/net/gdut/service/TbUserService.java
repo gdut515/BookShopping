@@ -1,6 +1,9 @@
 package net.gdut.service;
 
+import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
+
+import java.util.List;
 
 public interface TbUserService {
 
