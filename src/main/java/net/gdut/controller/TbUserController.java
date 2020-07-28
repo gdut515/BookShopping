@@ -20,6 +20,28 @@ public class TbUserController {
         return "regist";
     }
 
+    @GetMapping("/toLogin")
+    public String userLogin(){
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(String uname,String password){
+        TbUser user = tbUserService.getUser(uname);
+        //用户不存在
+        if(user==null){
+            return "login/error";
+        }
+        //密码错误
+        else if(!user.getPassword().equals(password)){
+            return "login/error";
+        }
+        //成功登录
+        else{
+            return "login/success";
+        }
+    }
+
     @PostMapping("/addUser")
     public String addUser(TbUser tbUser){
         tbUserService.addUser(tbUser);
