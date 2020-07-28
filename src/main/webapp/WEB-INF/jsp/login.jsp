@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>移动电子商务系统</title>
+  <title>电子书店系统</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -37,10 +37,10 @@
   <div class="login-box-body">
     <h2 class="login-box-msg">用户登录</h2>
     <h5>${message}</h5>
-    <form action="<%=request.getContextPath()%>/user/realm" method="post">
+    <form action="/login" method="post">
       <div class="form-group has-feedback">
         <label class="col-md-4 control-label">用户名</label>
-        <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+        <input type="text" class="form-control" name="uname" placeholder="请输入用户名">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
