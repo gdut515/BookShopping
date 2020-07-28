@@ -31,4 +31,9 @@ public class TbUserServiceImpl implements TbUserService {
         else System.out.println("不存在该用户");
         return user;
     }
+
+        @Override
+    public List<TbBook> getAllBook(){
+        return tbUserMapper.getAllBook();
+    }
 }

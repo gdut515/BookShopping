@@ -15,4 +15,9 @@
     <select id="getUser" parameterType="String" resultType="net.gdut.bean.TbUser">
         select * from tb_user where uname = #{uname};
     </select>
+
+
+    <select id="getAllBook" resultType="net.gdut.bean.TbBook">
+        select * from tb_book
+    </select>
 </mapper>

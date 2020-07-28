@@ -60,4 +60,24 @@ public class TbUserController {
     tbUserService.addAdmin(tbUser);
     return "result";
     }
+
+    @GetMapping("/allbook")
+    public String getAllBook(HttpServletRequest request){
+        int pageNum=1;
+        int pageSize=1;
+        int navigatePages=1;
+        PageHelper.startPage(pageNum,pageSize);
+        List<TbBook> books = tbUserService.getAllBook();
+        PageInfo<TbBook> userPageInfo = new PageInfo<>(books,navigatePages);
+        books.forEach(System.out::println);
+        request.setAttribute("books",books);
+
+        System.out.println("导航页码：" + Arrays.toString(userPageInfo.getNavigatepageNums()));
+        System.out.println("是否有下一页:" + userPageInfo.isHasNextPage());
+        System.out.println("是否有上一页:" + userPageInfo.isHasPreviousPage());
+        System.out.println("总页数:" + userPageInfo.getPages());
+        System.out.println("总数据条数:" + userPageInfo.getTotal());
+
+        return "user";
+    }
 }
