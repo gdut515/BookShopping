@@ -1,21 +1,33 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2020/7/26
-  Time: 0:11
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>hpm的主页</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>电子书店系统</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/css/bootstrap.min.css'>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/css/font-awesome.min.css'>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/css/ionicons.min.css'>
+    <!-- Theme style -->
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/css/AdminLTE.min.css'>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/css/_all-skins.min.css'>
+    <link rel="shortcut icon" href='/img/favicon.ico' type="image/x-icon">
+    <link rel="Bookmark" href='/img/favicon.ico'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<<<<<<< Updated upstream
-<body>
-<h1 align="center">欢迎来到我的主页！</h1><br>
-<h2 align="center">
-    <a href="regist">学生注册</a>
-=======
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="login-box">
@@ -54,9 +66,5 @@
 <script src="<%=request.getContextPath()%>/js/jquery-2.2.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 
-<h2 align="center">
-    <a href="allbook">书城</a>
->>>>>>> Stashed changes
-</h2>
 </body>
 </html>
