@@ -9,4 +9,7 @@ public interface TbUserService {
 
     //注册管理员
     public void addAdmin(TbUser tbUser);
+
+    //得到用户
+    public TbUser getUser(String uname);
 }
