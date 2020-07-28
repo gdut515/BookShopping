@@ -1,7 +1,10 @@
 package net.gdut.mapper;
 
+import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface TbUserMapper {
@@ -14,4 +17,7 @@ public interface TbUserMapper {
 
     //得到用户
     public TbUser getUser(String uname);
+
+        //查询所有书籍
+    List<TbBook> getAllBook();
 }

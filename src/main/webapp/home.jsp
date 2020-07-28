@@ -65,6 +65,14 @@
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery-2.2.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+
 <h3><a href="/admin">前往管理-测试用</a> </h3></body>
+
+
+
+<h2 align="center">
+    <a href="allbook">书城</a>
+</h2>
+
 </body>
 </html>
