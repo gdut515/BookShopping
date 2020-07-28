@@ -41,9 +41,13 @@ public class TbUserController {
         else if(!user.getPassword().equals(password)){
             return "login/error";
         }
-        //成功登录
+        //成功登录用户页面
+        else if(user.getAuthority().equals("user")){
+            return "login/userSuccess";
+        }
+        //成功登录管理员页面
         else{
-            return "login/success";
+            return "login/adminSuccess";
         }
     }
 
