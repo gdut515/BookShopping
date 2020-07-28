@@ -1,7 +1,6 @@
 package net.gdut.controller;
 
 import net.gdut.bean.TbUser;
-import net.gdut.mapper.TbUserMapper;
 import net.gdut.service.TbUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +19,11 @@ public class TbUserController {
         return "regist";
     }
 
+    @GetMapping("/Adminregist")
+    public String AdminRegist(){
+        return "Adminregist";
+    }
+
     @PostMapping("/addUser")
     public String addUser(TbUser tbUser){
         tbUserService.addUser(tbUser);
@@ -34,4 +38,9 @@ public class TbUserController {
 //        request.setAttribute("students",studentList);
 //        return "allStudent";
 //    }
+    @PostMapping("/addAdmin")
+    public String addAdmin(TbUser tbUser){
+    tbUserService.addAdmin(tbUser);
+    return "result";
+    }
 }

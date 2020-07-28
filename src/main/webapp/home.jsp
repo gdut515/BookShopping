@@ -14,6 +14,7 @@
 <h1 align="center">欢迎来到我的主页！</h1><br>
 <h2 align="center">
     <a href="regist">学生注册</a>
+    <a href="/Adminregist">管理员注册</a>
 </h2>
 </body>
 </html>
