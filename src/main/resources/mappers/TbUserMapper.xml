@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.gdut.mapper.TbUserMapper">
+    <!--注册普通用户-->
+    <insert id="addUser" parameterType="net.gdut.bean.TbUser">
+        insert into tb_user (uname,password,authority) values (#{uname},#{password},'user')
+    </insert>
+    <!--注册管理员-->
+    <insert id="addAdmin" parameterType="net.gdut.bean.TbUser">
+        insert into tb_user (uname,password,authority) values (#{uname},#{password},'admin')
+    </insert>
+</mapper>
