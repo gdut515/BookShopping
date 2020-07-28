@@ -5,4 +5,14 @@
 
 <mapper namespace="net.gdut.mapper.TbBookMapper">
 
+
+
+    <insert id="addBook" parameterType="net.gdut.bean.TbBook">
+    insert into tb_user (dno,dname,author,cover,price,description) values (#{dno},#{dname},#{author},#{cover},#{price},#{description})
+    </insert>
+
+    <insert id="deleteBook" parameterType="net.gdut.bean.TbBook">
+    delete from tb_user (dno,dname,author,cover,price,description) values (#{dno},#{dname},#{author},#{cover},#{price},#{description})
+    </insert>
+
 </mapper>
