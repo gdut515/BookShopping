@@ -28,6 +28,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="login-box">
     <div class="login-logo">
@@ -64,5 +65,6 @@
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery-2.2.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+
 </body>
 </html>
