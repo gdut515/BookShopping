@@ -1,5 +1,8 @@
 package net.gdut.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import net.gdut.service.TbUserService;
 import org.springframework.stereotype.Controller;
@@ -7,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class TbUserController {

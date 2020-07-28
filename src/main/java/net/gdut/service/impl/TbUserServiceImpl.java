@@ -1,11 +1,13 @@
 package net.gdut.service.impl;
 
+import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import net.gdut.mapper.TbUserMapper;
 import net.gdut.service.TbUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class TbUserServiceImpl implements TbUserService {
