@@ -21,7 +21,7 @@ public class TbUserController {
 
     @GetMapping("/toLogin")
     public String userLogin(){
-        return "login";
+        return "home";
     }
 
     @PostMapping("/login")
