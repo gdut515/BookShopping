@@ -35,24 +35,11 @@
     </table>
 </form>
 
-<form action="/addBook" method="post">
+<form action="/deleteBook" method="post">
     <table>
         <p>
             <input type="text" name="bname" placeholder="请输入书名">
         </p>
-        <p>
-            <input type="text" name="author" placeholder="请输入作者">
-        </p>
-        <p>
-            <input type="text" name="cover" placeholder="请输入封面">
-        </p>
-        <p>
-            <input type="number" name="price" placeholder="请输入价格">
-        </p>
-        <p>
-            <input type="text" name="description" placeholder="请输入描述">
-        </p>
-        <p>
             <input type="submit" value="删除书籍">
         </p>
     </table>

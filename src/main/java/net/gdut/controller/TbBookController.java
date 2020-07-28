@@ -14,13 +14,13 @@ public class TbBookController {
     TbBookService tbBookService;
 
     @PostMapping("/addBook")
-    public String addBook(TbBook TbBook){
-    tbBookService.addBook(TbBook);
+    public String addBook(TbBook tbBook){
+    tbBookService.addBook(tbBook);
         return "admin"; }
 
     @PostMapping("/deleteBook")
-    public String deleteBook(TbBook TbBook){
-        tbBookService.deleteBook(TbBook);
+    public String deleteBook(String bname){
+        tbBookService.deleteBook(bname);
         return "admin"; }
 
     @GetMapping("/admin")

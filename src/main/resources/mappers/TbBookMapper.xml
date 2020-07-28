@@ -8,11 +8,11 @@
 
 
     <insert id="addBook" parameterType="net.gdut.bean.TbBook">
-    insert into tb_book (dno,dname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
+    insert into tb_book (bname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
     </insert>
 
-    <insert id="deleteBook" parameterType="net.gdut.bean.TbBook">
-    delete from tb_book (dno,dname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
+    <insert id="deleteBook" parameterType="String">
+    delete from tb_book where bname = #{bname}
     </insert>
 
 </mapper>

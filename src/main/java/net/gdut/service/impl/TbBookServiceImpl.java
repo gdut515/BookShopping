@@ -16,6 +16,6 @@ public class TbBookServiceImpl implements TbBookService {
         tbBookMapper.addBook(tbBook);
     }
     @Override
-    public void deleteBook(TbBook tbBook) { tbBookMapper.deleteBook(tbBook); }
+    public void deleteBook(String bname) { tbBookMapper.deleteBook(bname); }
 
 }
