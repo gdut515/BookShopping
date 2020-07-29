@@ -1,6 +1,7 @@
 package net.gdut.mapper;
 
 import net.gdut.bean.TbBook;
+import net.gdut.bean.TbOrder;
 import net.gdut.bean.TbUser;
 import org.springframework.stereotype.Repository;
 

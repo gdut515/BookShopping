@@ -9,5 +9,7 @@ public interface TbBookMapper {
     public void addBook(TbBook tbBook);
     //删除书籍
     public void deleteBook(String bname);
+    //得到书
+    public TbBook getBook(String bname);
 
 }

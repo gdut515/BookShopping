@@ -15,4 +15,8 @@
     delete from tb_book where bname = #{bname}
     </insert>
 
+    <select id="getBook" parameterType="String" resultType="net.gdut.bean.TbBook">
+        select * from tb_book where bname = #{bname};
+    </select>
+
 </mapper>
