@@ -1,6 +1,5 @@
 <%@ page import="net.gdut.bean.TbBook" %>
 <%@ page import="java.util.List" %>
-<%@ page import="net.gdut.bean.TbUser" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <body>
@@ -8,7 +7,10 @@
     <title>用户-书城</title>
 </head>
 
-
+<%
+    Integer uno = (Integer) request.getAttribute("uno");
+    if(uno != 2){
+%>
 <%
     int i;
     List<TbBook> books = (List<TbBook>) request.getAttribute("books");
@@ -71,12 +73,12 @@
 <div class="srsearch-result-pagination">
     <div class="csdn-pagination hide-set" >
     <span class="page-nav">
-        <a href="?page=0"
+        <a href="?page=0&uno=<%=uno%>"
            page_num="1"
            class="btn btn-xs btn-default active checklogin">
             1
         </a><br>
-        <a href="?page=<%=count%>"
+        <a href="?page=<%=count%>&uno=<%=uno%>"
            page_num="2"
            class="btn btn-xs btn-default checklogin">
             2
@@ -84,7 +86,15 @@
     </span>
     </div>
 </div>
-
+<%
+    }
+    else{
+%>
+<h1>请先登录！</h1>
+<h3><a href="/">前往登录</a> </h3>
+<%
+    }
+%>
 </body>
 </html>
 
