@@ -37,6 +37,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <h2 class="login-box-msg">用户登录</h2>
+        <h3>${message}</h3>
         <form action="/login" method="post">
             <div class="form-group has-feedback">
                 <label class="col-md-4 control-label">用户名</label>

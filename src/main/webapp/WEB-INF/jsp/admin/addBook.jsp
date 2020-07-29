@@ -14,7 +14,7 @@
                     <h4 class="modal-title" id="myModalLabel">书籍添加</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="/admin/book/addBook">
+                    <form class="form-horizontal" action="/admin/addBook">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">author</label>
                             <div class="col-sm-10">
@@ -44,9 +44,9 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="提交" />
                     </form>
-                    <form action="/admin/book/getAllBook" method="post">
+                    <form action="/admin/toMain" method="get">
                         <input type="submit" value="返回" />
                     </form>
                 </div>

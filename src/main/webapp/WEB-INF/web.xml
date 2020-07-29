@@ -9,11 +9,16 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath:spring-mybatis.xml,
+      classpath:spring-mybatis.xml
       classpath:spring-tx.xml
+      classpath:spring-shiro.xml
     </param-value>
   </context-param>
 
+  <!--监听器-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
   <filter>
     <filter-name>Char Encoding</filter-name>
@@ -28,10 +33,6 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-  <!--监听器-->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
 
   <!--springmvc-->
   <servlet>
@@ -53,6 +54,21 @@
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
+
+  <!-- shiro 过滤器 -->
+  <filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <async-supported>true</async-supported>
+    <init-param>
+      <param-name>targetFilterLifecycle</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
 </web-app>
 

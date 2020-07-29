@@ -15,12 +15,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import java.util.List;
 
+//主页面功能
 @Controller
-@RequestMapping("/book")
-public class TbBookController {
+@RequestMapping("/main")
+public class MainController {
     @Autowired
     TbBookService bookService;
 
+    @GetMapping("/toMain")
+    public String toMain(){
+        return "redirect:/main/toindex";
+    }
+
+    @GetMapping("/toLogin")
+    public String userLogin(){
+        return "redirect:/toLogin";
+    }
+
+    @GetMapping("/toAddBook")
+    public String toAddBook(){
+        return "redirect:/admin/toAddBook";
+    }
     /**
      * 查询书籍并做出分页处理，并跳转到首页
      */
@@ -36,7 +51,7 @@ public class TbBookController {
         model.addAttribute("books", books);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");
-        return "redirect:/admin/book/getAllBook";
+        return "main";
     }
 
     /**
@@ -46,7 +61,7 @@ public class TbBookController {
     public String checkBook(String bookName,Model model){
         List<TbBook> books=bookService.getAllBookByName(bookName);
         model.addAttribute("books", books);
-        return "buy/BookListName";
+        return "buy/BookList";
     }
 
 }
