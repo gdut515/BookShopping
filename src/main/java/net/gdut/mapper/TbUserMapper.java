@@ -1,5 +1,6 @@
 package net.gdut.mapper;
 
+import net.gdut.bean.Paging;
 import net.gdut.bean.TbBook;
 import net.gdut.bean.TbOrder;
 import net.gdut.bean.TbUser;
