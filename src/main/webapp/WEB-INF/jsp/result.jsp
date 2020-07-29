@@ -11,6 +11,12 @@
     <title>注册成功</title>
 </head>
 <body>
-恭喜！你成功的注册了一个账号！
+<h1>注册成功!</h1>
+<%
+    response.setHeader("refresh", "3;URL=");
+%>
+<font color="black" size="5">
+    <br> 3秒后将跳转到登录主页 <br> <br> 如果没有跳转,请按 <a href="">这里</a>!!!<br>
+</font>
 </body>
 </html>
