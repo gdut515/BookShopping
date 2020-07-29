@@ -14,5 +14,4 @@ public class TbOrder {
     private Integer uno;
     private Integer bno;
     private Integer quantity;
-
 }
