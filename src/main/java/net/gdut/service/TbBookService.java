@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface TbBookService {
     //增加书籍
-    public void updateBook(TbBook tbBook);
+    public void addBook(TbBook tbBook);
     //删除书籍
     public void deleteBook(int bno);
     //得到书
@@ -18,6 +18,4 @@ public interface TbBookService {
     List<TbBook> getAllBookByPriceASC();
 
     List<TbBook> getAllBookByName(String bookName);
-
-    List<TbBook> selectBookBySale();
 }

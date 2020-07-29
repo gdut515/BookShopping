@@ -53,7 +53,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                     <li>
-                        <a href="<%=request.getContextPath()%>/book/getAllBook">
+                        <a href="<%=request.getContextPath()%>/admin/book/getAllBook">
                             <i class="fa fa-dashboard"></i> <span>书籍管理</span>
                         </a>
                     </li>

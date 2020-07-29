@@ -25,7 +25,8 @@ public class TbBookController {
      * 查询书籍并做出分页处理，并跳转到首页
      */
     @RequestMapping(value = "/toindex")
-    public String toindex(@RequestParam(value = "pageNo",defaultValue = "1") Integer pageNo, Model model){
+    public String toindex(@RequestParam(value = "pageNo", required = false, defaultValue = "0") Integer pageNo, Model model){
+        System.out.println("现在在浏览第"+pageNo+"页书籍");
         PageHelper.startPage(pageNo,10);
         //startPage后面紧跟的就是一个分页查询
         List<TbBook> books= bookService.getAllBook();
@@ -35,35 +36,7 @@ public class TbBookController {
         model.addAttribute("books", books);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");
-        return "buy/BookList";
-    }
-
-    @RequestMapping(value = "/Desc")
-    public String Desc(@RequestParam(value = "pageNo",defaultValue = "1") Integer pageNo,Model model){
-        PageHelper.startPage(pageNo,10);
-        //startPage后面紧跟的就是一个分页查询
-        List<TbBook> books= bookService.getAllBookByPriceDESC();
-        //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
-        //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
-        PageInfo pageInfo=new PageInfo(books,5);
-        model.addAttribute("books", books);
-        model.addAttribute("pageInfo", pageInfo);
-        model.addAttribute("url", "Desc");
-        return "buy/BookList";
-    }
-
-    @RequestMapping(value = "/Asc")
-    public String ASC(@RequestParam(value = "pageNo",defaultValue = "1") Integer pageNo,Model model) {
-        PageHelper.startPage(pageNo,10);
-        //startPage后面紧跟的就是一个分页查询
-        List<TbBook> books= bookService.getAllBookByPriceASC();
-        //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
-        //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
-        PageInfo pageInfo=new PageInfo(books,5);
-        model.addAttribute("books", books);
-        model.addAttribute("pageInfo", pageInfo);
-        model.addAttribute("url", "Asc");
-        return "buy/BookList";
+        return "redirect:/admin/book/getAllBook";
     }
 
     /**
