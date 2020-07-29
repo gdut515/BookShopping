@@ -36,7 +36,7 @@ public class TbBookController {
         model.addAttribute("books", books);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");
-        return "redirect:/admin/book/getAllBook";
+        return "/book/getAllBook";
     }
 
     /**
@@ -46,7 +46,7 @@ public class TbBookController {
     public String checkBook(String bookName,Model model){
         List<TbBook> books=bookService.getAllBookByName(bookName);
         model.addAttribute("books", books);
-        return "buy/BookListName";
+        return "buy/BookList";
     }
 
 }

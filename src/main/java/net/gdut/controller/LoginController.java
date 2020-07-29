@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class TbUserController {
+public class LoginController {
 
     @Resource
     TbUserService tbUserService;

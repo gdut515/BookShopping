@@ -6,15 +6,6 @@
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-            <a type="button" class="btn btn-danger" onclick="showChoose()">目录选择</a>
-            <div class="box-body" style="display: none;" id="chooseType">
-                <form action="<%=request.getContextPath()%>/book/searchByCategory" method="post">
-                    <select name="typeList" id="typeList">
-                        <option value="">请选择</option>
-                    </select>
-                    <input type="submit" class="btn btn-danger" value="查询">
-                </form>
-            </div>
             <form action="<%=request.getContextPath()%>/book/checkBook" method="post">
                 <input type="text" placeholder="请填写书籍名" name="bookName">
                 <input type="submit" class="btn btn-danger" value="查询书籍">
@@ -25,6 +16,7 @@
                href="<%=request.getContextPath()%>/book/Desc">按价格降序排序</a>
             <a type="button" class="btn btn-danger"
                href="<%=request.getContextPath()%>/book/selectBookBySale">5本最热销书籍</a>
+
             <div class="box box-info">
                 <div class="box-body" style="display: block;">
                     <div class="table-responsive">
@@ -33,12 +25,10 @@
                             <tr>
                                 <th>书本作者</th>
                                 <th>封面</th>
+                                <th>序号</th>
                                 <th>书名</th>
                                 <th>价格</th>
-                                <th>总页数</th>
-                                <th>出版社</th>
-                                <th>库存</th>
-                                <th>销量</th>
+                                <th>描述</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -46,20 +36,18 @@
                             <c:forEach var="book" items="${books}">
                                 <tr>
                                     <td>${book.author}</td>
-                                    <td><img src="<%=request.getContextPath()%>/${book.bookImage}"
-                                             style="width: 45px;height: 80px;"
-                                             onclick='showimage("<%=request.getContextPath()%>/${book.bookImage}")'/>
-                                    </td>
-                                    <td>${book.bookName}</td>
-                                    <td>${book.price}</td>
-
-                                    <td>${book.totalPage}</td>
-                                    <td>${book.pubilshing}</td>
-                                    <td>${book.stock}</td>
-                                    <td>${book.sale}</td>
                                     <td>
-                                        <a type="button" class="btn btn-danger" id="addCart"
-                                           href="<%=request.getContextPath()%>/cart/add/${book.bId}">加入购物车</a>
+                                        <img src="<%=request.getContextPath()%>/img/${book.cover}"
+                                             style="width: 60px;height: 60px;"
+                                             onclick='showimage("<%=request.getContextPath()%>/img/${book.cover}")'/>
+                                    </td>
+                                    <td>${book.bno}</td>
+                                    <td>${book.bname}</td>
+                                    <td>${book.price}</td>
+                                    <td>${book.description}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-danger"
+                                           href="<%=request.getContextPath()%>/user/buyBook/${book.bno}">购买</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -91,7 +79,6 @@
 <jsp:include page="../commons/tail.jsp"/>
 
 <script>
-
     function showChoose() {
         $("#chooseType").show();
         locationChange();
@@ -126,7 +113,6 @@
             }
         });
     }
-
 
 </script>
 </body>
