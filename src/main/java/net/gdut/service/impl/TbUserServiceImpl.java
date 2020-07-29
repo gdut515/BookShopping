@@ -1,5 +1,6 @@
 package net.gdut.service.impl;
 
+import net.gdut.bean.Paging;
 import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import net.gdut.mapper.TbUserMapper;
@@ -34,8 +35,8 @@ public class TbUserServiceImpl implements TbUserService {
         return user;
     }
 
-        @Override
-    public List<TbBook> getAllBook(){
-        return tbUserMapper.getAllBook();
+    @Override
+    public List<TbBook> getAllBook(Paging paging){
+        return tbUserMapper.getAllBook(paging);
     }
 }

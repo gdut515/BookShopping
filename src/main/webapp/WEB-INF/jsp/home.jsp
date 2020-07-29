@@ -54,23 +54,20 @@
                 <!-- /.col -->
                 <div class="col-xs-4">
                     <br/>
-                    <a type="button" class="btn btn-primary btn-block btn-flat" href="/regist">注册</a>
-                    <br/>
                     <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
             </div>
         </form>
     </div>
+    <br/>
 </div>
+
 <script src="<%=request.getContextPath()%>/js/jquery-2.2.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 
-<h3><a href="/admin">前往管理-测试用</a> </h3></body>
-
-
-<h2 align="center">
-    <a href="allbook">书城</a>
-</h2>
-
+<h3><a href="allbook?uno=2">books</a> </h3>
+<h3><a href="regist">前往注册</a> </h3>
+<h3><a href="admin">前往管理-测试用</a> </h3>
 </body>
+
 </html>

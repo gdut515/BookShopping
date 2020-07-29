@@ -17,8 +17,8 @@
     </select>
 
 
-    <select id="getAllBook" resultType="net.gdut.bean.TbBook">
-        select * from tb_book
+    <select id="getAllBook" parameterType="net.gdut.bean.Paging" resultType="net.gdut.bean.TbBook">
+        select * from tb_book limit #{page},#{count}
     </select>
 
     <select id="showOrder" resultType="net.gdut.bean.TbBook">

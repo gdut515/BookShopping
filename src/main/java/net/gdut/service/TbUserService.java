@@ -1,5 +1,6 @@
 package net.gdut.service;
 
+import net.gdut.bean.Paging;
 import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 
@@ -16,6 +17,6 @@ public interface TbUserService {
     //得到用户
     public TbUser getUser(String uname);
 
-        //查询所有书籍
-    List<TbBook> getAllBook();
+    //查询所有书籍
+    List<TbBook> getAllBook(Paging paging);
 }
