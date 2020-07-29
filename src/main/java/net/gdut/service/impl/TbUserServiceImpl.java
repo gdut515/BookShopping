@@ -34,8 +34,8 @@ public class TbUserServiceImpl implements TbUserService {
         return user;
     }
 
-        @Override
-    public List<TbBook> getAllBook(){
-        return tbUserMapper.getAllBook();
+    @Override
+    public List<TbBook> getAllBook(Paging paging){
+        return tbUserMapper.getAllBook(paging);
     }
 }

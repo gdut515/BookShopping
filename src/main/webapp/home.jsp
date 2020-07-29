@@ -70,7 +70,7 @@
 
 
 <h2 align="center">
-    <a href="allbook">书城</a>
+    <a href="allbook?page=0">书城</a>
 </h2>
 
 </body>

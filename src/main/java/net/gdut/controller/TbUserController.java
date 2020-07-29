@@ -57,14 +57,6 @@ public class TbUserController {
         return "result";
     }
 
-    //尚未提供可供jsp调用的/addAdmin方法
-
-//    @GetMapping("/all")
-//    public String getAllStudent(HttpServletRequest request){
-//        List<TbStudent> studentList = studentMapper.getAllStudentInfo();
-//        request.setAttribute("students",studentList);
-//        return "allStudent";
-//    }
     @PostMapping("/addAdmin")
     public String addAdmin(TbUser tbUser){
     tbUserService.addAdmin(tbUser);
@@ -72,22 +64,14 @@ public class TbUserController {
     }
 
     @GetMapping("/allbook")
-    public String getAllBook(HttpServletRequest request){
-        int pageNum=1;
-        int pageSize=1;
-        int navigatePages=1;
-        PageHelper.startPage(pageNum,pageSize);
-        List<TbBook> books = tbUserService.getAllBook();
-        PageInfo<TbBook> userPageInfo = new PageInfo<>(books,navigatePages);
-        books.forEach(System.out::println);
+    public String getAllBook(@RequestParam Integer page,HttpServletRequest request){
+        //Integer page=0;
+        Integer count=4;
+        Paging paging = new Paging(page,count);
+        List<TbBook> books = tbUserService.getAllBook(paging);
         request.setAttribute("books",books);
-
-        System.out.println("导航页码：" + Arrays.toString(userPageInfo.getNavigatepageNums()));
-        System.out.println("是否有下一页:" + userPageInfo.isHasNextPage());
-        System.out.println("是否有上一页:" + userPageInfo.isHasPreviousPage());
-        System.out.println("总页数:" + userPageInfo.getPages());
-        System.out.println("总数据条数:" + userPageInfo.getTotal());
-
+        books.forEach(System.out::println);
         return "user";
     }
+
 }
