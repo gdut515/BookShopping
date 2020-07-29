@@ -14,7 +14,7 @@
                     <h4 class="modal-title" id="myModalLabel">书籍添加</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="/book/addBook">
+                    <form class="form-horizontal" action="/admin/book/addBook">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">author</label>
                             <div class="col-sm-10">
@@ -22,7 +22,7 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                                <input type="hidden" name="cover" class="form-control" value="img/1.jpg">
+                        <input type="hidden" name="cover" class="form-control" value="1.jpg">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">bookName</label>
                             <div class="col-sm-10">
@@ -45,6 +45,9 @@
                             </div>
                         </div>
                         <input type="submit" value="Submit" />
+                    </form>
+                    <form action="/admin/book/getAllBook" method="post">
+                        <input type="submit" value="返回" />
                     </form>
                 </div>
             </div>

@@ -7,8 +7,8 @@
 <div class="content-wrapper">
 
     <a type="button" class="btn btn-danger"
-       href="/toAddBook">增加图书</a>
-    <form action="" method="post">
+       href="/admin/toAddBook">增加图书</a>
+        <form action="#" method="post">
             <input type="text" placeholder="请填写书籍名" name="bookName">
             <input type="submit" class="btn btn-danger" value="查询书籍">
         </form>
@@ -40,7 +40,7 @@
                                 <td>${book.bname}</td>
                                 <td>${book.price}</td>
                                 <td>${book.description}</td>
-                                <td>${book.cover}
+                                <td>
                                     <a type="button" class="btn btn-danger"
                                        href="<%=request.getContextPath()%>/book/deleteBook/${book.bno}">下架该书籍</a>
                                 </td>

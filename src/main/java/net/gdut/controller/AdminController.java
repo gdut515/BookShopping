@@ -12,13 +12,14 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
+@RequestMapping("admin")
 public class AdminController {
     @Resource
     TbBookService bookService;
 
-    @GetMapping("/admin")
+    @GetMapping("")
     public String admin(){
-        return "redirect:/book/getAllBook";
+        return "redirect:/admin/book/getAllBook";
     }
 
     @GetMapping("/toAddBook")
@@ -42,7 +43,7 @@ public class AdminController {
     @RequestMapping(value = "/book/deleteBook/{id}")
     public String deleteBook(@PathVariable(value = "id")Integer id) {
         bookService.deleteBook(id);
-        return "redirect:/book/getAllBook";
+        return "redirect:/admin/book/getAllBook";
     }
 
     @RequestMapping(value = "/book/update/{id}")
@@ -52,10 +53,10 @@ public class AdminController {
         return "admin/UpdateBook";
     }
 
-    @RequestMapping(value = "/book/updateBook")
-    public String updateBook(TbBook book) {
-        bookService.updateBook(book);
-        return "redirect:/book/getAllBook";
+    @RequestMapping(value = "/book/addBook")
+    public String addBook(TbBook book) {
+        bookService.addBook(book);
+        return "redirect:/admin/book/getAllBook";
     }
 
 }

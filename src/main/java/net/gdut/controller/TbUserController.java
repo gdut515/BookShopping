@@ -47,7 +47,7 @@ public class TbUserController {
         }
         //成功登录管理员页面
         else{
-            return "redirect:/book/getAllBook";
+            return "redirect:/admin/book/getAllBook";
         }
     }
 

@@ -13,7 +13,7 @@ public class TbBookServiceImpl implements TbBookService {
     @Resource
     TbBookMapper tbBookMapper;
     @Override
-    public void updateBook(TbBook tbBook) {
+    public void addBook(TbBook tbBook) {
         tbBookMapper.addBook(tbBook);
     }
     @Override
@@ -50,11 +50,6 @@ public class TbBookServiceImpl implements TbBookService {
 
     @Override
     public List<TbBook> getAllBookByName(String bookName) {
-        return null;
-    }
-
-    @Override
-    public List<TbBook> selectBookBySale() {
         return null;
     }
 }
