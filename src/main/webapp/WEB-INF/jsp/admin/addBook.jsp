@@ -14,7 +14,7 @@
                     <h4 class="modal-title" id="myModalLabel">书籍添加</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="/backend/book/saveBook">
+                    <form class="form-horizontal" action="/book/saveBook">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">类别有</label>
                             <div class="col-sm-10">
