@@ -47,7 +47,7 @@ public class TbUserController {
         }
         //成功登录管理员页面
         else{
-            return "login/adminSuccess";
+            return "admin";
         }
     }
 

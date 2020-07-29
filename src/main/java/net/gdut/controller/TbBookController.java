@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
+@RequestMapping("/book")
 public class TbBookController {
     @Autowired
     TbBookService bookService;

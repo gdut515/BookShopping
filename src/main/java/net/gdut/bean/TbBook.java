@@ -14,7 +14,7 @@ public class TbBook {
     private String bname;
     private String author;
     private String cover;
-    private double price;
+    private Double price;
     private String description;
 
 }

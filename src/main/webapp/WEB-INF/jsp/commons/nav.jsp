@@ -34,16 +34,10 @@
                                          alt="User Image">
                                     <p>${user.nickname}</p>
                                 </li>
-                                <!--Menu Body-->
-                                <li class="user-body">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <a href="/user/logOut" class="btn btn-default btn-flat">注销</a>
+                                        <a href="/toLogin" class="btn btn-default btn-flat">注销</a>
                                     </div>
                                 </li>
                             </ul>

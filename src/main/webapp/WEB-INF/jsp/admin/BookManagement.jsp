@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../commons/nav.jsp"%>
+<%@ page isELIgnored="false" %>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,7 +12,6 @@
             <input type="text" placeholder="请填写书籍名" name="bookName">
             <input type="submit" class="btn btn-danger" value="查询书籍">
         </form>
-
         <div class="box box-info">
             <div class="box-body" style="display: block;">
                 <div class="table-responsive">
@@ -31,24 +31,18 @@
                         <c:forEach var="book" items="${books}">
                             <tr>
                                 <td>${book.author}</td>
-                                <td>${book.cover}
-                                    <!--
-                                    <img src="<%=request.getContextPath()%>/${book.cover}"
-                                         style="width: 45px;height: 80px;"
-                                         onclick='showimage("<%=request.getContextPath()%>/${book.cover}")'/>
-                                     -->
+                                <td>
+                                    <img src="<%=request.getContextPath()%>/img/${book.cover}"
+                                         style="width: 60px;height: 60px;"
+                                         onclick='showimage("<%=request.getContextPath()%>/img/${book.cover}")'/>
                                 </td>
                                 <td>${book.bno}</td>
-                                <td>${book.bame}</td>
+                                <td>${book.bname}</td>
                                 <td>${book.price}</td>
                                 <td>${book.description}</td>
                                 <td>${book.cover}
-                                    <!--
                                     <a type="button" class="btn btn-danger"
                                        href="<%=request.getContextPath()%>/book/deleteBook/${book.bno}">下架该书籍</a>
-                                    <a type="button" class="btn btn-danger"
-                                       href="<%=request.getContextPath()%>/book/update/${book.bno}">修改该书籍信息</a>
-                                     -->
                                 </td>
                             </tr>
                         </c:forEach>

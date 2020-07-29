@@ -18,7 +18,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String admin(){
-        return "admin/BookManagement";
+        return "redirect:/book/getAllBook";
     }
 
     @GetMapping("/toAddBook")
