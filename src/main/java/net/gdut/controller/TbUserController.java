@@ -1,17 +1,16 @@
 package net.gdut.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import net.gdut.bean.Paging;
 import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import net.gdut.service.TbUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -64,7 +63,7 @@ public class TbUserController {
     }
 
     @GetMapping("/allbook")
-    public String getAllBook(@RequestParam Integer page,HttpServletRequest request){
+    public String getAllBook(@RequestParam Integer page, HttpServletRequest request){
         //Integer page=0;
         Integer count=4;
         Paging paging = new Paging(page,count);
