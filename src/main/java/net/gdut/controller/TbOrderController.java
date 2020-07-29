@@ -15,6 +15,6 @@ public class TbOrderController {
     @PostMapping("/addorder")
     public String addOrder(TbOrder tbOrder) {
         tbOrderService.addOrder(tbOrder);
-        return "admin";
+        return "#";
     }
 }
