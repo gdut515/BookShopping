@@ -1,12 +1,9 @@
 package net.gdut.controller;
 
-import net.gdut.bean.Paging;
-import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
 import net.gdut.service.TbUserService;
 import net.gdut.utils.CookieUtil;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -15,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;

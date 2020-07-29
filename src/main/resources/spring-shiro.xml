@@ -33,9 +33,16 @@
         <property name="filterChainDefinitions">
             <value>
                <!-- /admin/**=authc,roles["admin"]-->
-                /main/**=authc,roles["admin"],roles["user"]
+                /main/**=authc
+                /admin/**=roles["admin"]
                 /** = anon
             </value>
+        </property>
+        <property name="filters">
+            <map>
+                <!--退出过滤器-->
+                <entry key="logOut" value-ref="systemLogoutFilter" />
+            </map>
         </property>
     </bean>
 </beans>
