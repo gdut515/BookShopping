@@ -36,9 +36,6 @@
                         <br/>
                         总页数：<input name="totalPage" value="${book.totalPage}"/>
                         <br/>
-                        出版社：<input name="pubilshing" value="${book.pubilshing}"/>
-                        库存：<input name="stock" value="${book.stock}"/>
-                        销量：<input name="sale" value="${book.sale}"/>
                         <input type="submit" value="提交">
                     </form>
                 </div>

@@ -23,9 +23,6 @@ public class TbBookController {
 
     /**
      * 查询书籍并做出分页处理，并跳转到首页
-     * @param pageNo
-     * @param model
-     * @return
      */
     @RequestMapping(value = "/toindex")
     public String toindex(@RequestParam(value = "pageNo",defaultValue = "1") Integer pageNo, Model model){
@@ -70,40 +67,7 @@ public class TbBookController {
     }
 
     /**
-     * 获取书籍的类别（parent_id为0，因为这里想以后能够扩展出现二级类别），返回Json格式数据
-     * @param type
-     * @return
-     * @throws Exception
-     */
-    /*
-    @ResponseBody
-    @RequestMapping(value = "/getParentTypeList")
-    public String getParentTypeList(@RequestParam(value = "type", required = true) String type) throws Exception {
-        List<Category> categoryList  = categoryService.getParentTypeList();
-        return JSON.toJSONString(categoryList);
-    }
-    */
-    /**
-     * 显示该类别所有图书
-     * @param typeList
-     * @param model
-     * @return
-     * @throws Exception
-     */
-    /*
-    @RequestMapping(value = "/searchByCategory")
-    public String searchByCategory(String typeList,Model model) throws Exception{
-        List<Book> books=bookService.getAllBookByType(Integer.valueOf(typeList));
-        model.addAttribute("books", books);
-        return "buy/BookListName";
-    }
-     */
-
-    /**
      * 通过书籍名模糊查询书籍
-     * @param bookName
-     * @param model
-     * @return
      */
     @RequestMapping(value = "/checkBook")
     public String checkBook(String bookName,Model model){
@@ -112,10 +76,4 @@ public class TbBookController {
         return "buy/BookListName";
     }
 
-    @RequestMapping(value = "/selectBookBySale")
-    public String selectBookBySale(Model model) {
-        List<TbBook> books = bookService.selectBookBySale();
-        model.addAttribute("books", books);
-        return "buy/SaleBook";
-    }
 }
