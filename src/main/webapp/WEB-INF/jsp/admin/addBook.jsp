@@ -44,7 +44,7 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="提交" />
                     </form>
                     <form action="/admin/book/getAllBook" method="post">
                         <input type="submit" value="返回" />
