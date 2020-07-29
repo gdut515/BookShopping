@@ -53,11 +53,12 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                     <li>
-                        <a href="<%=request.getContextPath()%>/main">
+                        <a href="<%=request.getContextPath()%>/main/toMain">
                             <i class="fa fa-dashboard"></i> <span>主页</span>
                         </a>
-
-                        <a href="<%=request.getContextPath()%>/main">
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/main/toMain">
                             <i class="fa fa-dashboard"></i> <span>购物车</span>
                         </a>
                     </li>

@@ -35,8 +35,9 @@ public class LoginController {
     }
 
     @GetMapping("/toLogin")
-    public String userLogin(){
-        return "login/login";
+    public String userLogin(Model model){
+    model.addAttribute("message", "您好！");
+    return "login/login";
     }
 
     //当用户无权限时跳转的页面

@@ -18,7 +18,7 @@ public class AdminController {
     @Resource
     TbBookService bookService;
 
-    @GetMapping(value = "toMain")
+    @GetMapping("/toMain")
     public String toMain(){
         return "redirect:/main/toMain";
     }
@@ -31,13 +31,13 @@ public class AdminController {
     @RequestMapping(value = "/deleteBook/{id}")
     public String deleteBook(@PathVariable(value = "id")Integer id) {
         bookService.deleteBook(id);
-        return "redirect:main/toMain";
+        return "redirect:/admin/toMain";
     }
 
     @RequestMapping(value = "/addBook")
     public String addBook(TbBook book) {
         bookService.addBook(book);
-        return "redirect:main/toMain";
+        return "redirect:/admin/toMain";
     }
 
 }

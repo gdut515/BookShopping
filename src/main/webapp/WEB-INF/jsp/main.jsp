@@ -57,10 +57,10 @@
                                 <td>
                                     <shiro:hasAnyRoles name="admin">
                                     <a type="button" class="btn btn-danger"
-                                       href="<%=request.getContextPath()%>/deleteBook/${book.bno}">下架该书籍</a>
+                                       href="/admin/deleteBook/${book.bno}">下架该书籍</a>
                                     </shiro:hasAnyRoles>
                                         <a type="button" class="btn btn-danger"
-                                           href="<%=request.getContextPath()%>/buyBook/${book.bno}">购买该书籍</a>
+                                           href="/user/buyBook/${book.bno}">购买该书籍</a>
                                 </td>
                             </tr>
                         </c:forEach>
