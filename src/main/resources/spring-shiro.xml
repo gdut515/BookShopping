@@ -33,7 +33,7 @@
         <property name="filterChainDefinitions">
             <value>
                <!-- /admin/**=authc,roles["admin"]-->
-                /main/**=authc,roles["admin"]
+                /main/**=authc,roles["admin"],roles["user"]
                 /** = anon
             </value>
         </property>

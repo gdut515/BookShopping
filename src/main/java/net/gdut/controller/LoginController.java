@@ -62,7 +62,7 @@ public class LoginController {
         } catch (UnknownAccountException e) {
             //认证登录失败抛出异常
             model.addAttribute("message", "账号或密码错误");
-            return "/toLogin";
+            return "redirect:/toLogin";
         }
         TbUser loginUser = tbUserService.getUser(uname);
         session.setAttribute("user", loginUser);

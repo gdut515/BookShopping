@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <jsp:include page="commons/head.jsp"/>
 <%--<!-- Site wrapper -->--%>
 <div class="wrapper">
@@ -57,11 +58,13 @@
                             <i class="fa fa-dashboard"></i> <span>主页</span>
                         </a>
                     </li>
+                    <shiro:hasAnyRoles name="user">
                     <li>
                         <a href="<%=request.getContextPath()%>/main/toMain">
                             <i class="fa fa-dashboard"></i> <span>购物车</span>
                         </a>
                     </li>
+                    </shiro:hasAnyRoles>
             </ul>
         </section>
         <!-- /.sidebar -->
