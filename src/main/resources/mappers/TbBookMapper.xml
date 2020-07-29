@@ -11,12 +11,16 @@
     insert into tb_book (bname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
     </insert>
 
-    <insert id="deleteBook" parameterType="String">
-    delete from tb_book where bname = #{bname}
+    <insert id="deleteBook" parameterType="int">
+    delete from tb_book where bno = #{bno}
     </insert>
 
-    <select id="getBook" parameterType="String" resultType="net.gdut.bean.TbBook">
-        select * from tb_book where bname = #{bname};
+    <select id="getBook" parameterType="int" resultType="net.gdut.bean.TbBook">
+        select * from tb_book where bno = #{bno};
+    </select>
+
+    <select id="getAllBook" resultType="net.gdut.bean.TbBook">
+        select * from tb_book
     </select>
 
 </mapper>

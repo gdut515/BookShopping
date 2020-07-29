@@ -26,7 +26,7 @@ public class TbUserController {
 
     @GetMapping("/toLogin")
     public String userLogin(){
-        return "home";
+        return "login/login";
     }
 
     @PostMapping("/login")
@@ -47,7 +47,7 @@ public class TbUserController {
         }
         //成功登录管理员页面
         else{
-            return "login/adminSuccess";
+            return "redirect:/book/getAllBook";
         }
     }
 

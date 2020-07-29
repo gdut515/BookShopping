@@ -9,12 +9,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TbBook {
-    private Integer bno;
-    private String bname;
+public class CartItem {
+    private Integer id;
     private String author;
-    private String cover;
+    private String book_image;
+    private String book_name;
     private Double price;
-    private String description;
-
+    private Integer quantity;
 }

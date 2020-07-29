@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +67,7 @@
 
 <h3><a href="allbook?uno=2">books</a> </h3>
 <h3><a href="regist">前往注册</a> </h3>
-<h3><a href="admin">前往管理-测试用</a> </h3>
+<h3><a href="../admin">前往管理-测试用</a> </h3>
 </body>
 
 </html>
