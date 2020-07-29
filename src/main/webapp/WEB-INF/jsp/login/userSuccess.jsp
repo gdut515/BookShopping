@@ -13,10 +13,12 @@
 <body>
 <h1>普通用户 登录成功!</h1>
 <%
-    response.setHeader("refresh", "1;URL=/allbook");
+    Integer uno = (Integer) request.getAttribute("uno");
+//    response.setHeader("refresh", "1;URL=/allbook");
 %>
-<font color="black" size="5">
-    <br> 1秒后将跳转到主页面 <br> <br> 如果没有跳转,请按 <a href="/allbook">这里</a>!!!<br>
-</font>
+<h3><a href="allbook?uno=<%=uno%>">books</a> </h3>
+<%--<font color="black" size="5">--%>
+<%--    <br> 1秒后将跳转到主页面 <br> <br> 如果没有跳转,请按 <a href="allbook">这里</a>!!!<br>--%>
+<%--</font>--%>
 </body>
 </html>
