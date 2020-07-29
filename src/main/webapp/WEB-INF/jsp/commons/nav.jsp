@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="../commons/head.jsp"/>
+<jsp:include page="commons/head.jsp"/>
 <%--<!-- Site wrapper -->--%>
 <div class="wrapper">
     <header class="main-header">
@@ -24,7 +24,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<%=request.getContextPath()%>/img/2.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">${user.nickname}</span>
+                                <span class="hidden-xs">${user.uname}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -32,7 +32,7 @@
                                     <img id="user-header" src="<%=request.getContextPath()%>/img/2.jpg"
                                          class="img-circle"
                                          alt="User Image">
-                                    <p>${user.nickname}</p>
+                                    <p>${user.uname}</p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
@@ -53,8 +53,12 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                     <li>
-                        <a href="<%=request.getContextPath()%>/admin/book/getAllBook">
-                            <i class="fa fa-dashboard"></i> <span>书籍管理</span>
+                        <a href="<%=request.getContextPath()%>/main">
+                            <i class="fa fa-dashboard"></i> <span>主页</span>
+                        </a>
+
+                        <a href="<%=request.getContextPath()%>/main">
+                            <i class="fa fa-dashboard"></i> <span>购物车</span>
                         </a>
                     </li>
             </ul>

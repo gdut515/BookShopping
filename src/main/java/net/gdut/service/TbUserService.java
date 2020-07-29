@@ -19,4 +19,7 @@ public interface TbUserService {
 
     //查询所有书籍
     List<TbBook> getAllBook(Paging paging);
+
+    //得到权限类型：user/admin
+    public List<String> getRole(String uname);
 }

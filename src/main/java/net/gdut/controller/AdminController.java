@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
+//管理员功能
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/admin")
 public class AdminController {
     @Resource
     TbBookService bookService;
 
-    @GetMapping("")
-    public String admin(){
-        return "redirect:/admin/book/getAllBook";
+    @GetMapping(value = "toMain")
+    public String toMain(){
+        return "redirect:/main/toMain";
     }
 
     @GetMapping("/toAddBook")
@@ -27,36 +28,16 @@ public class AdminController {
         return "admin/addBook";
     }
 
-    @RequestMapping(value = "/book/getAllBook")
-    public String toindex(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo, Model model) {
-        PageHelper.startPage(pageNo, 10);
-        //startPage后面紧跟的就是一个分页查询
-        List<TbBook> books = bookService.getAllBook();
-        //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
-        //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
-        PageInfo pageInfo = new PageInfo(books, 5);
-        model.addAttribute("books", books);
-        model.addAttribute("pageInfo", pageInfo);
-        return "admin/BookManagement";
-    }
-
-    @RequestMapping(value = "/book/deleteBook/{id}")
+    @RequestMapping(value = "/deleteBook/{id}")
     public String deleteBook(@PathVariable(value = "id")Integer id) {
         bookService.deleteBook(id);
-        return "redirect:/admin/book/getAllBook";
+        return "redirect:main/toMain";
     }
 
-    @RequestMapping(value = "/book/update/{id}")
-    public String update(@PathVariable(value = "id")Integer id, Model model) {
-        TbBook book = bookService.getBook(id);
-        model.addAttribute("book", book);
-        return "admin/UpdateBook";
-    }
-
-    @RequestMapping(value = "/book/addBook")
+    @RequestMapping(value = "/addBook")
     public String addBook(TbBook book) {
         bookService.addBook(book);
-        return "redirect:/admin/book/getAllBook";
+        return "redirect:main/toMain";
     }
 
 }

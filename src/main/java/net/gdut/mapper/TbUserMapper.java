@@ -25,4 +25,7 @@ public interface TbUserMapper {
 
     //展示订单
     List<TbBook> showOrder(TbOrder tbOrder);
+
+    //得到权限
+    public List<String> getRole(String uname);
 }
