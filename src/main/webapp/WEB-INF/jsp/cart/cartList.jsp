@@ -2,25 +2,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../commons/nav.jsp"%>
+<%@ page isELIgnored="false" %>
 
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-            <a type="button" class="btn btn-danger" onclick="showChoose()">目录选择</a>
-            <div class="box-body" style="display: none;" id="chooseType">
-                <form action="<%=request.getContextPath()%>/book/searchByCategory" method="post">
-                    <select name="typeList" id="typeList">
-                        <option value="">请选择</option>
-                    </select>
-                    <input type="submit" class="btn btn-danger" value="查询">
-                </form>
-            </div>
-            <form action="<%=request.getContextPath()%>/book/checkBook" method="post">
-                <input type="text" placeholder="请填写书籍名" name="bookName">
-                <input type="submit" class="btn btn-danger" value="查询书籍">
-            </form>
-
-
             <div class="box box-info">
                 <div class="box-body" style="display: block;">
                     <div class="table-responsive">

@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class LoginController {
@@ -27,7 +26,7 @@ public class LoginController {
 
     @GetMapping("/regist")
     public String userRegist(){
-        return "regist";
+        return "login/regist";
     }
 
     @GetMapping("/toLogin")
@@ -78,7 +77,7 @@ public class LoginController {
     @PostMapping("/addUser")
     public String addUser(TbUser tbUser){
         tbUserService.addUser(tbUser);
-        return "addresult";
+        return "login/addresult";
     }
 
     @PostMapping("/addAdmin")
