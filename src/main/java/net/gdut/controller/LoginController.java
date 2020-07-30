@@ -64,13 +64,12 @@ public class LoginController {
         return "redirect:main/toMain";
     }
 
-    /**
-     * 登出
-     */
+    //登出
     @RequestMapping("/logOut")
     public String logOut(HttpServletRequest request, HttpServletResponse response) {
         //清楚cookie缓存
         CookieUtil.deleteCookie(request, response,"user");
+        CookieUtil.deleteCookie(request, response,"cart");
         return "redirect:/toLogin";
     }
 
@@ -79,12 +78,5 @@ public class LoginController {
         tbUserService.addUser(tbUser);
         return "login/addresult";
     }
-
-    @PostMapping("/addAdmin")
-    public String addAdmin(TbUser tbUser){
-    tbUserService.addAdmin(tbUser);
-    return "result";
-    }
-
 
 }

@@ -66,9 +66,8 @@
 <script src="<%=request.getContextPath()%>/js/jquery-2.2.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 
-<h3><a href="allbook?uno=2">books</a> </h3>
 <h3><a href="regist">前往注册</a> </h3>
-<h3><a href="admin">前往管理-测试用</a> </h3>
+
 </body>
 
 </html>

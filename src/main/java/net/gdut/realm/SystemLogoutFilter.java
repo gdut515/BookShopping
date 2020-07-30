@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+/*
+ shiro登出过滤器，当检测到网址喊/logOut时，自动清理shiro权限认证缓存
+*/
 @Service
 public class SystemLogoutFilter extends LogoutFilter {
     @Override

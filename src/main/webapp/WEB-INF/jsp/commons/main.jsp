@@ -17,12 +17,6 @@
         <input type="text" placeholder="请填写书籍名" name="bookName">
         <input type="submit" class="btn btn-danger" value="查询书籍">
     </form>
-    <a type="button" class="btn btn-danger"
-       href="<%=request.getContextPath()%>/main/Asc">按价格升序排序</a>
-    <a type="button" class="btn btn-danger"
-       href="<%=request.getContextPath()%>/main/Desc">按价格降序排序</a>
-    <a type="button" class="btn btn-danger"
-       href="<%=request.getContextPath()%>/main/selectBookBySale">5本最热销书籍</a>
     </shiro:user>
 
     <shiro:user>
@@ -61,7 +55,7 @@
                                     </shiro:hasAnyRoles>
                                     <shiro:hasAnyRoles name="user">
                                         <a type="button" class="btn btn-danger"
-                                           href="/user/buyBook/${book.bno}">购买该书籍</a>
+                                           href="/cart/add/${book.bno}">购买该书籍</a>
                                     </shiro:hasAnyRoles>
                                 </td>
                             </tr>

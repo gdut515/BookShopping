@@ -6,10 +6,7 @@
     <!-- Main content -->
     <section class="content">
 
-        <h1>您所购买某一书籍数量超过其库存，请检查</h1>
-        <h3>${data}:${message}</h3>
-        <a type="button" class="btn btn-danger"
-           href="<%=request.getContextPath()%>/cart/cart">返回我的购物车</a>
+        <h1>您没有权限!</h1>
     </section>
 
 </div>

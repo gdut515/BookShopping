@@ -28,13 +28,15 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager" />
-        <property name="loginUrl" value="/commons/error" />    <!--没有登录的时候，跳转到这个页面-->
-        <property name="unauthorizedUrl" value="/commons/error" /> <!--当没有权限的时候，跳转到这个url-->
+        <property name="loginUrl" value="/toLogin" />    <!--没有登录的时候，跳转到这个页面-->
+        <property name="unauthorizedUrl" value="/nopermission" /> <!--当没有权限的时候，跳转到这个url-->
         <property name="filterChainDefinitions">
             <value>
                <!-- /admin/**=authc,roles["admin"]-->
                 /main/**=authc
                 /admin/**=roles["admin"]
+                /cart/**=roles["user"]
+                /order/**=roles["user"]
                 /** = anon
             </value>
         </property>

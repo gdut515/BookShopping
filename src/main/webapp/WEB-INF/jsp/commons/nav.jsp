@@ -53,15 +53,24 @@
             <!-- Sidebar user panel -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
+                    <shiro:authenticated>
                     <li>
                         <a href="<%=request.getContextPath()%>/main/toMain">
                             <i class="fa fa-dashboard"></i> <span>主页</span>
                         </a>
                     </li>
+                    </shiro:authenticated>
                     <shiro:hasAnyRoles name="user">
                     <li>
                         <a href="<%=request.getContextPath()%>/main/toCart">
                             <i class="fa fa-dashboard"></i> <span>购物车</span>
+                        </a>
+                    </li>
+                    </shiro:hasAnyRoles>
+                    <shiro:hasAnyRoles name="user">
+                    <li>
+                        <a href="<%=request.getContextPath()%>/order/toOrder">
+                            <i class="fa fa-dashboard"></i> <span>订单</span>
                         </a>
                     </li>
                     </shiro:hasAnyRoles>
