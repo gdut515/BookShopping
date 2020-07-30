@@ -2,13 +2,16 @@ package net.gdut.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import net.gdut.bean.TbBook;
+import net.gdut.bean.Paging;import net.gdut.bean.TbBook;
 import net.gdut.bean.TbUser;
+import net.gdut.service.TbBookService;
 import net.gdut.service.TbUserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -19,6 +22,9 @@ public class TbUserController {
 
     @Resource
     TbUserService tbUserService;
+
+    @Resource
+    TbBookService bookService;
 
     @GetMapping("/regist")
     public String userRegist(){
@@ -71,7 +77,7 @@ public class TbUserController {
     return "result";
     }
 
-    @GetMapping("/allbook")
+    @GetMapping("/allbook1")
     public String getAllBook(HttpServletRequest request){
         int pageNum=1;
         int pageSize=1;
@@ -89,5 +95,18 @@ public class TbUserController {
         System.out.println("总数据条数:" + userPageInfo.getTotal());
 
         return "user";
+    }
+    @RequestMapping(value = "/allbook")
+    public String getAllBook(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,@RequestParam Integer uno, Model model) {
+        PageHelper.startPage(pageNo, 10);
+        //startPage后面紧跟的就是一个分页查询
+        List<TbBook> books = bookService.getAllBook();
+        //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
+        //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
+        PageInfo pageInfo = new PageInfo(books, 4);
+        model.addAttribute("books", books);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("uno",uno);
+        return "login/user1";
     }
 }

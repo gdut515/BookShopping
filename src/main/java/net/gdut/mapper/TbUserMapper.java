@@ -21,6 +21,5 @@ public interface TbUserMapper {
         //查询所有书籍
     List<TbBook> getAllBook();
 
-    //展示订单
-    List<TbBook> showOrder(TbOrder tbOrder);
+
 }

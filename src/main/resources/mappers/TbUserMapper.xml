@@ -23,6 +23,6 @@
 
     <select id="showOrder" resultType="net.gdut.bean.TbBook">
 -- 多表查询 已知uid查所有订单？通过bno合并还是全部订单展示
-        select (ono,uno,bno) user from tb_book tb_order
+        select (ono,uno,bno) user from tb_order where uno = #{uno};
     </select>
 </mapper>
