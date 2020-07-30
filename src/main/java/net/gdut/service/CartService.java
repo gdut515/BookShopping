@@ -15,4 +15,6 @@ public interface CartService {
     Msg addCartItem(Integer itemId, HttpServletRequest request, HttpServletResponse response);
 
     List<CartItem> getCartItemList(HttpServletRequest request, HttpServletResponse response);
+
+    void clear(HttpServletRequest request, HttpServletResponse response);
 }

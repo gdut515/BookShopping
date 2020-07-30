@@ -16,7 +16,6 @@
     姓名：<input type="text" name="uname" size="20" value="" maxlength="20"><br/>
     密码：<input type="password" name="password" size="20" value="" maxlength="20"><br/><br/>
     <input type="submit" name="submit" value="注册">
-    <input type="reset" name="reset" value="重置"><br/>
 </form>
 </body>
 </html>

@@ -18,7 +18,6 @@
                                 <th>书名</th>
                                 <th>价格</th>
                                 <th>购买数量</th>
-                                <th>出版社</th>
                                 <th>商品总价</th>
                                 <th>操作</th>
                             </tr>
@@ -29,19 +28,13 @@
                                 <c:set var="totalPrice" value="${ totalPrice + (cart.price * cart.quantity)}"/>
                                 <tr>
                                     <td>${cart.author}</td>
-                                    <td><img src="<%=request.getContextPath()%>/${cart.book_image}"
-                                             style="width: 45px;height: 80px;"
-                                             onclick='showimage("<%=request.getContextPath()%>/${cart.book_image}")'/>
+                                    <td><img src="<%=request.getContextPath()%>/img/${cart.book_image}"
+                                             style="width: 60px;height: 60px;"
+                                             onclick='showimage("<%=request.getContextPath()%>/img/${cart.book_image}")'/>
                                     </td>
                                     <td>${cart.book_name}</td>
                                     <td>${cart.price}</td>
-                                    <td>
-                                        <input type="text"
-                                               itemPrice="${cart.price}"
-                                               itemId="${cart.id}" value="${cart.quantity}"
-                                               class="quantity">
-                                    </td>
-                                    <td>${cart.pubilshing}</td>
+                                    <td>${cart.quantity}</td>
                                     <td>${cart.price*cart.quantity}</td>
                                     <td>
                                         <a type="button" class="btn btn-danger"
@@ -56,7 +49,7 @@
                         <h2>总价：¥<fmt:formatNumber value="${totalPrice}" maxFractionDigits="2" minFractionDigits="2"
                                                   groupingUsed="true"/></h2>
                         <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/order/toindex">去结算</a>
+                           href="<%=request.getContextPath()%>/cart/buy?uno=${user.uno}">去结算</a>
                     </div>
                 </div>
             </div>
@@ -65,56 +58,6 @@
 </div>
 <%@include file="../commons/tail.jsp"%>
 <script>
-
-    function showChoose() {
-        $("#chooseType").show();
-        locationChange();
-    }
-
-    function showimage(source) {
-        $("#imgInModalID").attr("src", source);
-        $('.modal').show();
-    }
-
-    function closeModel() {
-        $('.modal').hide();
-    }
-
-    function locationChange() {
-        var type = "";
-        var obj = document.getElementById('typeList');
-        obj.options.length = 0;
-        $.ajax({
-            type: "post",
-            url: "/book/getParentTypeList",
-            cache: false,
-            data: {type: type},
-            dataType: "json",
-            success: function (result) {
-                if (result.length > 0) {
-                    for (var i in result) {
-                        var selectOption = new Option(result[i].name, result[i].cId);
-                        obj.add(selectOption);
-                    }
-                }
-            }
-        });
-    }
-
-    $(".quantity").change(function () {
-        var _thisInput = $(this);
-        if(parseInt(_thisInput.val())>0&&parseInt(_thisInput.val())<1000){
-            var change = confirm("确认修改商品数量吗？(请确保为数字，否则发生错误!");
-            if (change = true) {
-                window.location.href = "<%=request.getContextPath()%>/cart/updateQuantity/" + _thisInput.attr("itemId") + "/" + _thisInput.val();
-
-            }
-        }else {
-            alert("请输入正确数字");
-            window.location.href = "<%=request.getContextPath()%>/cart/updateQuantity/" + _thisInput.attr("itemId") + "/" + 1;
-        }
-    })
-
 </script>
 </body>
 </html>

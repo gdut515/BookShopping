@@ -15,4 +15,6 @@ public interface TbBookMapper {
     public TbBook getBook(int bno);
     //得到书籍列表
     public List<TbBook> getAllBook();
+    //得到根据名字查询的书籍列表
+    public List<TbBook> getAllBookByName(String bname);
 }

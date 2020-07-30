@@ -57,7 +57,18 @@
                     <br/>
                     <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
+
             </div>
+        </form>
+        <form action="/regist" method="get">
+        <div class="row">
+            <div class="col-xs-8">
+            </div>
+            <div class="col-xs-4">
+                <br/>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+            </div>
+        </div>
         </form>
     </div>
     <br/>
@@ -66,9 +77,7 @@
 <script src="<%=request.getContextPath()%>/js/jquery-2.2.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 
-<h3><a href="allbook?uno=2">books</a> </h3>
-<h3><a href="regist">前往注册</a> </h3>
-<h3><a href="admin">前往管理-测试用</a> </h3>
+
 </body>
 
 </html>

@@ -17,12 +17,6 @@
         <input type="text" placeholder="请填写书籍名" name="bookName">
         <input type="submit" class="btn btn-danger" value="查询书籍">
     </form>
-    <a type="button" class="btn btn-danger"
-       href="<%=request.getContextPath()%>/main/Asc">按价格升序排序</a>
-    <a type="button" class="btn btn-danger"
-       href="<%=request.getContextPath()%>/main/Desc">按价格降序排序</a>
-    <a type="button" class="btn btn-danger"
-       href="<%=request.getContextPath()%>/main/selectBookBySale">5本最热销书籍</a>
     </shiro:user>
 
     <shiro:user>
@@ -32,10 +26,10 @@
                     <table class="table no-margin">
                         <thead>
                         <tr>
-                            <th>书本作者</th>
-                            <th>封面</th>
                             <th>序号</th>
                             <th>书名</th>
+                            <th>作者</th>
+                            <th>封面</th>
                             <th>价格</th>
                             <th>描述</th>
                             <th>操作</th>
@@ -44,14 +38,14 @@
                         <tbody>
                         <c:forEach var="book" items="${books}">
                             <tr>
+                                <td>${book.bno}</td>
+                                <td>${book.bname}</td>
                                 <td>${book.author}</td>
                                 <td>
                                     <img src="<%=request.getContextPath()%>/img/${book.cover}"
                                          style="width: 60px;height: 60px;"
                                          onclick='showimage("<%=request.getContextPath()%>/img/${book.cover}")'/>
                                 </td>
-                                <td>${book.bno}</td>
-                                <td>${book.bname}</td>
                                 <td>${book.price}</td>
                                 <td>${book.description}</td>
                                 <td>
@@ -61,7 +55,7 @@
                                     </shiro:hasAnyRoles>
                                     <shiro:hasAnyRoles name="user">
                                         <a type="button" class="btn btn-danger"
-                                           href="/user/buyBook/${book.bno}">购买该书籍</a>
+                                           href="/cart/add/${book.bno}">购买该书籍</a>
                                     </shiro:hasAnyRoles>
                                 </td>
                             </tr>

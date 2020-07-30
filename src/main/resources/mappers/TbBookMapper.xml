@@ -23,4 +23,7 @@
         select * from tb_book
     </select>
 
+    <select id="getAllBookByName" parameterType="String" resultType="net.gdut.bean.TbBook">
+        select distinct * from tb_book where bname like "%"#{bname}"%"
+    </select>
 </mapper>

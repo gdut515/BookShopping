@@ -13,9 +13,5 @@ public interface TbBookService {
     //
     List<TbBook> getAllBook();
 
-    List<TbBook> getAllBookByPriceDESC();
-
-    List<TbBook> getAllBookByPriceASC();
-
     List<TbBook> getAllBookByName(String bookName);
 }

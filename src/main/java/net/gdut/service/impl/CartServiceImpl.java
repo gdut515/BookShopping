@@ -72,6 +72,12 @@ public class CartServiceImpl implements CartService {
         return new ArrayList<>();
     }
 
+    //清空购物车
+    @Override
+    public void clear(HttpServletRequest request, HttpServletResponse response) {
+        CookieUtil.deleteCookie(request,response,"Cart");
+    }
+
     //删除购物车商品
     @Override
     public Msg deleteCartItem(Integer itemId, HttpServletRequest request, HttpServletResponse response) {
