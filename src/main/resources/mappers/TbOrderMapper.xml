@@ -7,4 +7,7 @@
     <insert id="addOrder" parameterType="net.gdut.bean.TbOrder">
         insert into tb_order (uno,bno,quantity) values (#{uno},#{bno},#{quantity})
     </insert>
+    <select id="getAllOrder" parameterType="int" resultType="net.gdut.bean.TbOrder">
+        select * from tb_order where uno = #{uno}
+    </select>
 </mapper>

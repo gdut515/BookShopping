@@ -7,12 +7,8 @@ import java.util.List;
 
 @Repository
 public interface TbOrderMapper {
-    //插入订单
-    int insert(TbOrder order);
     //查询所有订单
-    List<TbOrder> getAllOrder();
-    //查询订单该用户所属订单
-    List<TbOrder> getAllOrderByUser(Long id);
-
+    List<TbOrder> getAllOrder(int uno);
+    //插入订单
     void addOrder(TbOrder tbOrder);
 }

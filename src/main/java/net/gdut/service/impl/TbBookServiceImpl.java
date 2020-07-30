@@ -39,16 +39,6 @@ public class TbBookServiceImpl implements TbBookService {
     }
 
     @Override
-    public List<TbBook> getAllBookByPriceDESC() {
-        return null;
-    }
-
-    @Override
-    public List<TbBook> getAllBookByPriceASC() {
-        return null;
-    }
-
-    @Override
     public List<TbBook> getAllBookByName(String bookName) {
         return null;
     }

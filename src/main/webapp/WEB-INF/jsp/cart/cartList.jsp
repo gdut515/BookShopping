@@ -49,7 +49,7 @@
                         <h2>总价：¥<fmt:formatNumber value="${totalPrice}" maxFractionDigits="2" minFractionDigits="2"
                                                   groupingUsed="true"/></h2>
                         <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/order/toindex">去结算</a>
+                           href="<%=request.getContextPath()%>/cart/buy?uno=${user.uno}">去结算</a>
                     </div>
                 </div>
             </div>

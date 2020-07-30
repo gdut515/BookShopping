@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../commons/nav.jsp"%>
+<%@ page isELIgnored="false" %>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -13,38 +15,19 @@
                         <table class="table no-margin">
                             <thead>
                             <tr>
-                                <th>书本作者</th>
-                                <th>封面</th>
-                                <th>序号</th>
-                                <th>书名</th>
-                                <th>价格</th>
-                                <th>描述</th>
-                                <th>操作</th>
+                                <th>订单号</th>
+                                <th>用户号</th>
+                                <th>书籍号</th>
+                                <th>数量</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="book" items="${books}">
+                            <c:forEach var="order" items="${orders}">
                                 <tr>
-                                    <td>${book.author}</td>
-                                    <td>
-                                        <img src="<%=request.getContextPath()%>/img/${book.cover}"
-                                             style="width: 60px;height: 60px;"
-                                             onclick='showimage("<%=request.getContextPath()%>/img/${book.cover}")'/>
-                                    </td>
-                                    <td>${book.bno}</td>
-                                    <td>${book.bname}</td>
-                                    <td>${book.price}</td>
-                                    <td>${book.description}</td>
-                                    <td>
-                                        <shiro:hasAnyRoles name="admin">
-                                            <a type="button" class="btn btn-danger"
-                                               href="/admin/deleteBook/${book.bno}">下架该书籍</a>
-                                        </shiro:hasAnyRoles>
-                                        <shiro:hasAnyRoles name="user">
-                                            <a type="button" class="btn btn-danger"
-                                               href="/cart/add/${book.bno}">购买该书籍</a>
-                                        </shiro:hasAnyRoles>
-                                    </td>
+                                    <td>${order.ono}</td>
+                                    <td>${order.uno}</td>
+                                    <td>${order.bno}</td>
+                                    <td>${order.quantity}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>

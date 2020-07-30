@@ -69,7 +69,7 @@
                     </shiro:hasAnyRoles>
                     <shiro:hasAnyRoles name="user">
                     <li>
-                        <a href="<%=request.getContextPath()%>/order/toOrder">
+                        <a href="<%=request.getContextPath()%>/order/toOrder?uno=${user.uno}">
                             <i class="fa fa-dashboard"></i> <span>订单</span>
                         </a>
                     </li>
