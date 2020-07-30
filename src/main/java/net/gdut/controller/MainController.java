@@ -63,7 +63,7 @@ public class MainController {
     public String checkBook(String bookName,Model model){
         List<TbBook> books=bookService.getAllBookByName(bookName);
         model.addAttribute("books", books);
-        return "buy/BookList";
+        return "commons/main";
     }
 
 }

@@ -26,10 +26,10 @@
                     <table class="table no-margin">
                         <thead>
                         <tr>
-                            <th>书本作者</th>
-                            <th>封面</th>
                             <th>序号</th>
                             <th>书名</th>
+                            <th>作者</th>
+                            <th>封面</th>
                             <th>价格</th>
                             <th>描述</th>
                             <th>操作</th>
@@ -38,14 +38,14 @@
                         <tbody>
                         <c:forEach var="book" items="${books}">
                             <tr>
+                                <td>${book.bno}</td>
+                                <td>${book.bname}</td>
                                 <td>${book.author}</td>
                                 <td>
                                     <img src="<%=request.getContextPath()%>/img/${book.cover}"
                                          style="width: 60px;height: 60px;"
                                          onclick='showimage("<%=request.getContextPath()%>/img/${book.cover}")'/>
                                 </td>
-                                <td>${book.bno}</td>
-                                <td>${book.bname}</td>
                                 <td>${book.price}</td>
                                 <td>${book.description}</td>
                                 <td>

@@ -11,6 +11,11 @@
     <title>注册成功</title>
 </head>
 <body>
+<h1>普通用户 注册成功!</h1>
 注册成功！
+<%
+    response.setHeader("refresh", "3;URL=/toLogin");
+%>
+
 </body>
 </html>
