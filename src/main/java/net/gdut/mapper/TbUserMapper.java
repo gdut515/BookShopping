@@ -1,6 +1,5 @@
 package net.gdut.mapper;
 
-import net.gdut.bean.Paging;
 import net.gdut.bean.TbBook;
 import net.gdut.bean.TbOrder;
 import net.gdut.bean.TbUser;
@@ -19,9 +18,6 @@ public interface TbUserMapper {
 
     //得到用户
     public TbUser getUser(String uname);
-
-    //查询所有书籍
-    List<TbBook> getAllBook(Paging paging);
 
     //展示订单
     List<TbBook> showOrder(TbOrder tbOrder);
