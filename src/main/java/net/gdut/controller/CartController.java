@@ -1,6 +1,5 @@
 package net.gdut.controller;
 
-/*
 import net.gdut.bean.CartItem;
 import net.gdut.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 
     @Autowired
     CartService cartService;
 
     @RequestMapping("/add/{itemId}")
-    public String addCartItem(@PathVariable Long itemId, HttpServletRequest request, HttpServletResponse response) {
+    public String addCartItem(@PathVariable Integer itemId, HttpServletRequest request, HttpServletResponse response) {
         cartService.addCartItem(itemId, request, response);
         return "cart/success";
     }
@@ -33,17 +33,16 @@ public class CartController {
     }
 
     @RequestMapping("/delete/{itemId}")
-    public String deleteCartItem(@PathVariable Long itemId, HttpServletRequest request, HttpServletResponse response) {
+    public String deleteCartItem(@PathVariable Integer itemId, HttpServletRequest request, HttpServletResponse response) {
         cartService.deleteCartItem(itemId, request, response);
         return "redirect:/cart/cart";
     }
 
     @RequestMapping("/updateQuantity/{itemId}/{itemQuantity}")
-    public String updateQuantity(@PathVariable("itemId") Long itemId, @PathVariable("itemQuantity") Integer quantity,
+    public String updateQuantity(@PathVariable("itemId")Integer itemId, @PathVariable("itemQuantity") Integer quantity,
                                  HttpServletRequest request, HttpServletResponse response) {
         cartService.updateItem(itemId, quantity, request, response);
         return "redirect:/cart/cart";
     }
 
 }
-*/

@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 //主页面功能
@@ -36,6 +34,10 @@ public class MainController {
     public String toAddBook(){
         return "redirect:/admin/toAddBook";
     }
+
+    @GetMapping("/toCart")
+    public String toCart() { return "redirect:/cart/cart"; }
+
     /**
      * 查询书籍并做出分页处理，并跳转到首页
      */
@@ -51,7 +53,7 @@ public class MainController {
         model.addAttribute("books", books);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");
-        return "main";
+        return "commons/main";
     }
 
     /**
