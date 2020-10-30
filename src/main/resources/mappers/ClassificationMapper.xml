@@ -6,15 +6,15 @@
 <mapper namespace="net.gdut.mapper.ClassificationMapper">
     <!--添加书籍分类条目-->
     <insert id="addCategoryItem" parameterType="net.gdut.bean.classification.CategoryItem">
-        insert into tb_category (no,name) values (#{no},#{name})
+        insert into tb_category (name) values (#{name})
     </insert>
     <!--添加出版商条目-->
     <insert id="addPublisherItem" parameterType="net.gdut.bean.classification.PublisherItem">
-        insert into tb_publisher (no,name)  values (#{no},#{name})
+        insert into tb_publisher (name)  values (#{name})
     </insert>
     <!--添加年龄条目-->
     <insert id="addAgeItem" parameterType="net.gdut.bean.classification.AgeItem">
-        insert into tb_age (no,name) values (#{no},#{name})
+        insert into tb_age (name) values (#{name})
     </insert>
 
     <!--删除书籍分类条目-->
