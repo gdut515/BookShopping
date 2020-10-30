@@ -22,26 +22,25 @@ public class MainController {
 
     @GetMapping("/toMain")
     public String toMain(){
-        return "redirect:/main/toindex";
+        return "redirect:/main/toIndex";
     }
-
     @GetMapping("/toLogin")
     public String userLogin(){
         return "redirect:/toLogin";
     }
-
-    @GetMapping("/toAddBook")
-    public String toAddBook(){
-        return "redirect:/admin/toAddBook";
+    @GetMapping("/toBookManager")
+    public String toBookManager(){
+        return "redirect:/bookManager/toBookManager";
     }
-
+    @GetMapping("/toClassificationManager")
+    public String toClassificationManager(){
+        return "redirect:/classificationManager/toClassificationManager";
+    }
     @GetMapping("/toCart")
-    public String toCart() { return "redirect:/cart/cart"; }
+    public String toCart() { return "redirect:/cart/toCart"; }
 
-    /**
-     * 查询书籍并做出分页处理，并跳转到首页
-     */
-    @RequestMapping(value = "/toindex")
+    //查询书籍并做出分页处理，并跳转到首页
+    @RequestMapping(value = "/toIndex")
     public String toindex(@RequestParam(value = "pageNo", required = false, defaultValue = "0") Integer pageNo, Model model){
         System.out.println("现在在浏览第"+pageNo+"页书籍");
         PageHelper.startPage(pageNo,10);
@@ -56,9 +55,7 @@ public class MainController {
         return "commons/main";
     }
 
-    /**
-     * 通过书籍名模糊查询书籍
-     */
+    //通过书籍名模糊查询书籍
     @RequestMapping(value = "/checkBook")
     public String checkBook(String bookName,Model model){
         List<Book> books=bookService.getAllBookByName(bookName);

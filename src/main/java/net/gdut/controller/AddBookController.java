@@ -11,30 +11,25 @@ import javax.annotation.Resource;
 
 //书籍管理控制器
 @Controller
-@RequestMapping("/admin")
-public class BookManagerController {
+@RequestMapping("/addBook")
+public class AddBookController {
     @Resource
     BookService bookService;
 
-    @GetMapping("/toMain")
-    public String toMain(){
-        return "redirect:/main/toMain";
-    }
-
     @GetMapping("/toAddBook")
-    public String toAddBook(){
-        return "admin/addBook";
+    public String toBookManager(){
+        return "book/addBook";
     }
 
     @RequestMapping(value = "/deleteBook/{id}")
     public String deleteBook(@PathVariable(value = "id")Integer id) {
         bookService.deleteBook(id);
-        return "redirect:/admin/toMain";
+        return "redirect:/main/toMain";
     }
 
     @RequestMapping(value = "/addBook")
     public String addBook(Book book) {
         bookService.addBook(book);
-        return "redirect:/admin/toMain";
+        return "redirect:/main/toMain";
     }
 }

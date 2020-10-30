@@ -24,27 +24,27 @@ public class LoginController {
     @Resource
     UserService userService;
 
-    @GetMapping("/regist")
+    @GetMapping("/toRegist")
     public String userRegist(){
         return "login/regist";
     }
 
     @GetMapping("/toLogin")
     public String userLogin(Model model){
-    model.addAttribute("message", "您好！");
-    return "login/login";
+        model.addAttribute("message", "您好！");
+        return "login/login";
     }
 
-    //当用户无权限时跳转的页面
-    @RequestMapping("/nopermission")
-    public String nopermission(Model model) {
-        model.addAttribute("message", "您无权访问该页面");
-        return "commons/error";
+    //添加用户
+    @PostMapping("/addUser")
+    public String addUser(User user){
+        userService.addUser(user);
+        return "login/addresult";
     }
 
     //用shiro提供的Realm拦截器来判断当前用户是否存在并授权
     @RequestMapping("/login")
-    public String test(String uname, String password, Model model, HttpSession session) {
+    public String login(String uname, String password, Model model, HttpSession session) {
         //获取当前用户对象
         Subject subject = SecurityUtils.getSubject();
         //生成令牌(传入用户输入的账号和密码)
@@ -65,11 +65,12 @@ public class LoginController {
     }
 
     //登出
-    @RequestMapping("/logOut")
-    public String logOut(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
         //清楚cookie缓存
         CookieUtil.deleteCookie(request, response,"user");
         CookieUtil.deleteCookie(request, response,"cart");
         return "redirect:/toLogin";
     }
+
 }
