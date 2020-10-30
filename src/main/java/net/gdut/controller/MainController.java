@@ -2,8 +2,8 @@ package net.gdut.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import net.gdut.bean.TbBook;
-import net.gdut.service.TbBookService;
+import net.gdut.bean.Book;
+import net.gdut.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/main")
 public class MainController {
     @Autowired
-    TbBookService bookService;
+    BookService bookService;
 
     @GetMapping("/toMain")
     public String toMain(){
@@ -46,7 +46,7 @@ public class MainController {
         System.out.println("现在在浏览第"+pageNo+"页书籍");
         PageHelper.startPage(pageNo,10);
         //startPage后面紧跟的就是一个分页查询
-        List<TbBook> books= bookService.getAllBook();
+        List<Book> books= bookService.getAllBook();
         //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
         //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
         PageInfo pageInfo=new PageInfo(books,5);
@@ -61,7 +61,7 @@ public class MainController {
      */
     @RequestMapping(value = "/checkBook")
     public String checkBook(String bookName,Model model){
-        List<TbBook> books=bookService.getAllBookByName(bookName);
+        List<Book> books=bookService.getAllBookByName(bookName);
         model.addAttribute("books", books);
         return "commons/main";
     }

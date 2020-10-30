@@ -1,7 +1,7 @@
 package net.gdut.service;
 
 import net.gdut.bean.CartItem;
-import net.gdut.bean.Msg;
+import net.gdut.bean.tools.Msg;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package net.gdut.bean;
+package net.gdut.bean.tools;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TbOrder {
-    private Integer ono;
-    private Integer uno;
-    private Integer bno;
-    private Integer quantity;
+public class Paging {
+    private Integer page;
+    private Integer count;
 }

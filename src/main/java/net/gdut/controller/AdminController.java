@@ -1,22 +1,18 @@
 package net.gdut.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import net.gdut.bean.TbBook;
-import net.gdut.service.TbBookService;
+import net.gdut.bean.Book;
+import net.gdut.service.BookService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 //管理员功能
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
     @Resource
-    TbBookService bookService;
+    BookService bookService;
 
     @GetMapping("/toMain")
     public String toMain(){
@@ -35,7 +31,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addBook")
-    public String addBook(TbBook book) {
+    public String addBook(Book book) {
         bookService.addBook(book);
         return "redirect:/admin/toMain";
     }

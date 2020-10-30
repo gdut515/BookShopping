@@ -1,4 +1,4 @@
-package net.gdut.bean;
+package net.gdut.bean.tools;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,9 @@
 package net.gdut.controller;
 
 import net.gdut.bean.CartItem;
-import net.gdut.bean.TbOrder;
+import net.gdut.bean.Order;
 import net.gdut.service.CartService;
-import net.gdut.service.TbBookService;
-import net.gdut.service.TbOrderService;
+import net.gdut.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -25,7 +23,7 @@ public class CartController {
     CartService cartService;
 
     @Autowired
-    TbOrderService orderService;
+    OrderService orderService;
 
 
     @RequestMapping("/add/{itemId}")
@@ -58,7 +56,7 @@ public class CartController {
     public String buyOrder(@RequestParam(value = "uno")Integer uno, HttpServletRequest request, HttpServletResponse response){
         List<CartItem> list = cartService.getCartItemList(request, response);
         for(CartItem item : list){
-            orderService.addOrder(new TbOrder(item.getId(),uno,item.getId(),item.getQuantity()));
+            orderService.addOrder(new Order(item.getId(),uno,item.getId(),item.getQuantity()));
         }
         cartService.clear(request,response);
         return "redirect:/order/toOrder?uno="+uno;

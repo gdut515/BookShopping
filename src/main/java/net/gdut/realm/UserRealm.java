@@ -3,8 +3,8 @@ package net.gdut.realm;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
-import net.gdut.bean.TbUser;
-import net.gdut.service.impl.TbUserServiceImpl;
+import net.gdut.bean.User;
+import net.gdut.service.impl.UserServiceImpl;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UserRealm extends AuthorizingRealm {
         @Autowired
-        private TbUserServiceImpl userServiceImpl;
+        private UserServiceImpl userServiceImpl;
 
         //登录之后用于授权
         @Override
@@ -39,7 +39,7 @@ public class UserRealm extends AuthorizingRealm {
                 throws AuthenticationException
         {
             String username = (String)authenticationToken.getPrincipal();
-            TbUser user = userServiceImpl.getUser(username);
+            User user = userServiceImpl.getUser(username);
             System.out.println("验证用户："+user);
             if(user == null) {
                 //找不到账号

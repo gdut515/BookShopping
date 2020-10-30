@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="net.gdut.mapper.TbOrderMapper">
-    <insert id="addOrder" parameterType="net.gdut.bean.TbOrder">
+<mapper namespace="net.gdut.mapper.OrderMapper">
+    <insert id="addOrder" parameterType="net.gdut.bean.Order">
         insert into tb_order (uno,bno,quantity) values (#{uno},#{bno},#{quantity})
     </insert>
-    <select id="getAllOrder" parameterType="int" resultType="net.gdut.bean.TbOrder">
+    <select id="getAllOrder" parameterType="int" resultType="net.gdut.bean.Order">
         select * from tb_order where uno = #{uno}
     </select>
 </mapper>

@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TbUser {
+public class User {
     private Integer uno;
     private String uname;
     private String password;

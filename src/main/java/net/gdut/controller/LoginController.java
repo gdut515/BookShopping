@@ -1,7 +1,7 @@
 package net.gdut.controller;
 
-import net.gdut.bean.TbUser;
-import net.gdut.service.TbUserService;
+import net.gdut.bean.User;
+import net.gdut.service.UserService;
 import net.gdut.utils.CookieUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Resource
-    TbUserService tbUserService;
+    UserService userService;
 
     @GetMapping("/regist")
     public String userRegist(){
@@ -59,7 +59,7 @@ public class LoginController {
             model.addAttribute("message", "账号或密码错误");
             return "redirect:/toLogin";
         }
-        TbUser loginUser = tbUserService.getUser(uname);
+        User loginUser = userService.getUser(uname);
         session.setAttribute("user", loginUser);
         return "redirect:main/toMain";
     }
@@ -74,8 +74,8 @@ public class LoginController {
     }
 
     @PostMapping("/addUser")
-    public String addUser(TbUser tbUser){
-        tbUserService.addUser(tbUser);
+    public String addUser(User user){
+        userService.addUser(user);
         return "login/addresult";
     }
 

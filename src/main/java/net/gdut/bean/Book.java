@@ -9,12 +9,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TbBook {
+public class Book {
     private Integer bno;
     private String bname;
     private String author;
     private String cover;
     private Double price;
     private String description;
-
+    private Integer category;
+    private Integer publisher;
+    private Integer age;
 }

@@ -3,11 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="net.gdut.mapper.TbBookMapper">
+<mapper namespace="net.gdut.mapper.BookMapper">
 
-
-
-    <insert id="addBook" parameterType="net.gdut.bean.TbBook">
+    <insert id="addBook" parameterType="net.gdut.bean.Book">
     insert into tb_book (bname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
     </insert>
 
@@ -15,15 +13,15 @@
     delete from tb_book where bno = #{bno}
     </insert>
 
-    <select id="getBook" parameterType="int" resultType="net.gdut.bean.TbBook">
+    <select id="getBook" parameterType="int" resultType="net.gdut.bean.Book">
         select * from tb_book where bno = #{bno};
     </select>
 
-    <select id="getAllBook" resultType="net.gdut.bean.TbBook">
+    <select id="getAllBook" resultType="net.gdut.bean.Book">
         select * from tb_book
     </select>
 
-    <select id="getAllBookByName" parameterType="String" resultType="net.gdut.bean.TbBook">
+    <select id="getAllBookByName" parameterType="String" resultType="net.gdut.bean.Book">
         select distinct * from tb_book where bname like "%"#{bname}"%"
     </select>
 </mapper>

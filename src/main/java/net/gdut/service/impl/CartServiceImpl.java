@@ -1,10 +1,10 @@
 package net.gdut.service.impl;
 
 import net.gdut.bean.CartItem;
-import net.gdut.bean.Msg;
-import net.gdut.bean.TbBook;
+import net.gdut.bean.tools.Msg;
+import net.gdut.bean.Book;
 import net.gdut.service.CartService;
-import net.gdut.service.TbBookService;
+import net.gdut.service.BookService;
 import net.gdut.utils.CookieUtil;
 import net.gdut.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 public class CartServiceImpl implements CartService {
 
     @Autowired
-    TbBookService bookService;
+    BookService bookService;
 
     //添加购物车商品
     @Override
@@ -40,7 +40,7 @@ public class CartServiceImpl implements CartService {
         }
         if (cartItem == null) {
             cartItem = new CartItem();
-            TbBook book = bookService.getBook(itemId);
+            Book book = bookService.getBook(itemId);
             cartItem.setQuantity(1);
             cartItem.setId(book.getBno());
             cartItem.setAuthor(book.getAuthor());
