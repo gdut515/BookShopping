@@ -10,11 +10,11 @@ import java.util.List;
 
 @Repository
 public interface ClassificationMapper {
-    //添加分类条目
+    //添加书籍分类条目
     public void addCategoryItem(CategoryItem categoryItem);
-    //添加出版商分类条目
+    //添加出版商条目
     public void addPublisherItem(PublisherItem publisherItem);
-    //添加年龄分类条目
+    //添加年龄条目
     public void addAgeItem(AgeItem ageItem);
     //删除分类条目
     public void deleteCategoryItem(int no);
@@ -23,9 +23,9 @@ public interface ClassificationMapper {
     //删除年龄分类条目
     public void deleteAgeItem(int no);
     //查询分类条目列表
-    public List<CategoryItem> getCategoryItem();
+    public List<CategoryItem> getAllCategoryItem();
     //查询出版商分类条目列表
-    public List<PublisherItem> getPublisherItem();
+    public List<PublisherItem> getAllPublisherItem();
     //查询年龄分类条目列表
-    public List<AgeItem> getAgeItem();
+    public List<AgeItem> getAllAgeItem();
 }
