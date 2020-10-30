@@ -6,7 +6,8 @@
 <mapper namespace="net.gdut.mapper.BookMapper">
     <!--添加书籍-->
     <insert id="addBook" parameterType="net.gdut.bean.Book">
-    insert into tb_book (bname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
+    insert into tb_book (bname,author,cover,price,description,category,publisher,age) values
+     (#{bname},#{author},#{cover},#{price},#{description},#{category},#{publisher},#{age})
     </insert>
 
     <!--删除书籍-->
@@ -27,9 +28,9 @@
         select * from tb_book limit #{page},#{count}
     </select>
     <!--查询书籍列表（根据订单）-->
-    <select id="showOrder" resultType="net.gdut.bean.Book">
-    -- 多表查询 已知uid查所有订单？通过bno合并还是全部订单展示
-        select (ono,uno,bno) user from tb_book tb_order
+    <select id="getBookByOrder" parameterType="int" resultType="net.gdut.bean.Book">
+        select (ono,uno,bno) from tb_book
+        (select bno from tb_orderitem where ono = #{ono})
     </select>
     <!--查询书籍列表（根据书名模糊查询）-->
     <select id="getAllBookByName" parameterType="String" resultType="net.gdut.bean.Book">

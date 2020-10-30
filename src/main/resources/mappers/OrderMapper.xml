@@ -6,7 +6,11 @@
 <mapper namespace="net.gdut.mapper.OrderMapper">
     <!--添加订单-->
     <insert id="addOrder" parameterType="net.gdut.bean.Order">
-        insert into tb_order (uno,bno,quantity) values (#{uno},#{bno},#{quantity})
+        insert into tb_order (ono,uno,time,state,address) values (#{ono},#{uno},#{time},#{state},#{adress})
+    </insert>
+    <!--添加订单项目-->
+    <insert id="addOrderItem" parameterType="net.gdut.bean.OrderItem">
+        insert into tb_order (no,ono,bno,quantity) values (#{no},#{ono},#{bno},#{quantity})
     </insert>
     <!--查询订单-->
     <select id="getAllOrder" parameterType="int" resultType="net.gdut.bean.Order">
