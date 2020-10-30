@@ -1,6 +1,8 @@
 package net.gdut.service.impl;
 
 import net.gdut.bean.Book;
+import net.gdut.bean.Order;
+import net.gdut.bean.tools.Paging;
 import net.gdut.mapper.BookMapper;
 import net.gdut.service.BookService;
 import org.springframework.stereotype.Service;
@@ -12,14 +14,17 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
     @Resource
     BookMapper bookMapper;
+
     @Override
     public void addBook(Book book) {
         bookMapper.addBook(book);
     }
+
     @Override
     public void deleteBook(int bno) {
         bookMapper.deleteBook(bno);
     }
+
     @Override
     public Book getBook(int bno){
         Book book = bookMapper.getBook(bno);
@@ -36,6 +41,11 @@ public class BookServiceImpl implements BookService {
             System.out.println(book);
         }
         return books;
+    }
+
+    @Override
+    public List<Book> getAllBook(Paging paging){
+        return bookMapper.getAllBook(paging);
     }
 
     @Override

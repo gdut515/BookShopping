@@ -19,8 +19,6 @@ public interface BookMapper {
     public List<Book> getAllBook();
     //查询书籍列表
     List<Book> getAllBook(Paging paging);
-    //查询书籍列表（根据订单）
-    List<Book> showOrder(Order order);
     //查询书籍列表（根据书名模糊查询）
     public List<Book> getAllBookByName(String name);
 }

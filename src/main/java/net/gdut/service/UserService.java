@@ -9,6 +9,7 @@ import java.util.List;
 public interface UserService {
     //添加普通用户
     public void addUser(User user);
+
     //查询用户
     public User getUser(String uname);
     //查询用户权限：user/admin

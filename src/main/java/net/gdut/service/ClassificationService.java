@@ -13,12 +13,14 @@ public interface ClassificationService {
     public void addPublisherItem(PublisherItem publisherItem);
     //添加年龄条目
     public void addAgeItem(AgeItem ageItem);
+
     //删除分类条目
     public void deleteCategoryItem(int no);
     //删除出版商分类条目
     public void deletePublisherItem(int no);
     //删除年龄分类条目
     public void deleteAgeItem(int no);
+
     //查询分类条目列表
     public List<CategoryItem> getAllCategoryItem();
     //查询出版商分类条目列表
