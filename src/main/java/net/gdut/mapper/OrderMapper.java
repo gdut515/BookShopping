@@ -8,8 +8,10 @@ import java.util.List;
 
 @Repository
 public interface OrderMapper {
-    //查询所有订单
+    //查询订单列表
     List<Order> getAllOrder(int uno);
+    //查询订单
+    Order getOrder(int ono);
     //添加订单
     void addOrder(Order order);
 }

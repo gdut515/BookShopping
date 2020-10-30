@@ -1,6 +1,9 @@
 package net.gdut.service;
 
 import net.gdut.bean.Book;
+import net.gdut.bean.Order;
+import net.gdut.bean.tools.Paging;
+
 import java.util.List;
 
 public interface BookService {
@@ -8,10 +11,14 @@ public interface BookService {
     public void addBook(Book book);
     //删除书籍
     public void deleteBook(int bno);
-    //得到书
+    //查询书籍
     public Book getBook(int bno);
-    //
-    List<Book> getAllBook();
-
-    List<Book> getAllBookByName(String bookName);
+    //查询书籍列表
+    public List<Book> getAllBook();
+    //查询书籍列表
+    List<Book> getAllBook(Paging paging);
+    //查询书籍列表（根据订单）
+    List<Book> showOrder(Order order);
+    //查询书籍列表（根据书名模糊查询）
+    public List<Book> getAllBookByName(String name);
 }
