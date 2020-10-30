@@ -23,15 +23,6 @@
     <select id="getAllBook" resultType="net.gdut.bean.Book">
         select * from tb_book
     </select>
-    <!--查询书籍列表-->
-    <select id="getAllBook" parameterType="net.gdut.bean.tools.Paging" resultType="net.gdut.bean.Book">
-        select * from tb_book limit #{page},#{count}
-    </select>
-    <!--查询书籍列表（根据订单）-->
-    <select id="getBookByOrder" parameterType="int" resultType="net.gdut.bean.Book">
-        select (ono,uno,bno) from tb_book
-        (select bno from tb_orderitem where ono = #{ono})
-    </select>
     <!--查询书籍列表（根据书名模糊查询）-->
     <select id="getAllBookByName" parameterType="String" resultType="net.gdut.bean.Book">
         select distinct * from tb_book where bname like "%"#{bname}"%"

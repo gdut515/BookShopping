@@ -13,11 +13,15 @@
         insert into tb_order (ono,bno,quantity) values (#{ono},#{bno},#{quantity})
     </insert>
     <!--查询订单-->
-    <select id="getAllOrder" parameterType="int" resultType="net.gdut.bean.Order">
+    <select id="getOrder" parameterType="int" resultType="net.gdut.bean.Order">
         select * from tb_order where ono = #{ono}
     </select>
     <!--查询订单列表-->
     <select id="getAllOrder" parameterType="int" resultType="net.gdut.bean.Order">
         select * from tb_order where uno = #{uno}
+    </select>
+    <!--查询订单列表-->
+    <select id="getOrderItemByOrder" parameterType="int" resultType="net.gdut.bean.OrderItem">
+        select * from tb_orderitem where uno = #{ono}
     </select>
 </mapper>

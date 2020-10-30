@@ -43,10 +43,6 @@ public class BookServiceImpl implements BookService {
         return books;
     }
 
-    @Override
-    public List<Book> getAllBook(Paging paging){
-        return bookMapper.getAllBook(paging);
-    }
 
     @Override
     public List<Book> getAllBookByName(String bookName) {
