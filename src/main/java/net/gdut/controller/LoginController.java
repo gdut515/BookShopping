@@ -4,7 +4,6 @@ import net.gdut.bean.User;
 import net.gdut.service.UserService;
 import net.gdut.utils.CookieUtil;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
@@ -66,7 +65,7 @@ public class LoginController {
     @PostMapping("/addUser")
     public String addUser(User user){
         userService.addUser(user);
-        return "login/addresult";
+        return "addUserSuccess";
     }
 
     //登出
