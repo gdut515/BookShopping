@@ -4,23 +4,34 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="net.gdut.mapper.BookMapper">
-
+    <!--添加书籍-->
     <insert id="addBook" parameterType="net.gdut.bean.Book">
     insert into tb_book (bname,author,cover,price,description) values (#{bname},#{author},#{cover},#{price},#{description})
     </insert>
 
-    <insert id="deleteBook" parameterType="int">
+    <!--删除书籍-->
+    <delete id="deleteBook" parameterType="int">
     delete from tb_book where bno = #{bno}
-    </insert>
+    </delete>
 
+    <!--查询书籍-->
     <select id="getBook" parameterType="int" resultType="net.gdut.bean.Book">
         select * from tb_book where bno = #{bno};
     </select>
-
+    <!--查询书籍列表-->
     <select id="getAllBook" resultType="net.gdut.bean.Book">
         select * from tb_book
     </select>
-
+    <!--查询书籍列表-->
+    <select id="getAllBook" parameterType="net.gdut.bean.tools.Paging" resultType="net.gdut.bean.Book">
+        select * from tb_book limit #{page},#{count}
+    </select>
+    <!--查询书籍列表（根据订单）-->
+    <select id="showOrder" resultType="net.gdut.bean.Book">
+    -- 多表查询 已知uid查所有订单？通过bno合并还是全部订单展示
+        select (ono,uno,bno) user from tb_book tb_order
+    </select>
+    <!--查询书籍列表（根据书名模糊查询）-->
     <select id="getAllBookByName" parameterType="String" resultType="net.gdut.bean.Book">
         select distinct * from tb_book where bname like "%"#{bname}"%"
     </select>

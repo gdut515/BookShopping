@@ -4,28 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="net.gdut.mapper.UserMapper">
-    <!--注册普通用户-->
+    <!--添加普通用户-->
     <insert id="addUser" parameterType="net.gdut.bean.User">
         insert into tb_user (uname,password,authority) values (#{uname},#{password},'user')
     </insert>
-    <!--注册管理员-->
-    <insert id="addAdmin" parameterType="net.gdut.bean.User">
-        insert into tb_user (uname,password,authority) values (#{uname},#{password},'admin')
-    </insert>
+    <!--查询用户-->
     <select id="getUser" parameterType="String" resultType="net.gdut.bean.User">
         select * from tb_user where uname = #{uname};
     </select>
-
-
-    <select id="getAllBook" parameterType="net.gdut.bean.tools.Paging" resultType="net.gdut.bean.Book">
-        select * from tb_book limit #{page},#{count}
-    </select>
-
-    <select id="showOrder" resultType="net.gdut.bean.Book">
--- 多表查询 已知uid查所有订单？通过bno合并还是全部订单展示
-        select (ono,uno,bno) user from tb_book tb_order
-    </select>
-
+    <!--查询用户权限-->
     <select id="getRole" parameterType="String" resultType="String">
         select authority from tb_user where uname = #{uname}
     </select>
