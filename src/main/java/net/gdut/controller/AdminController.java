@@ -35,5 +35,4 @@ public class AdminController {
         bookService.addBook(book);
         return "redirect:/admin/toMain";
     }
-
 }

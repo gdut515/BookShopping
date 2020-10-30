@@ -19,7 +19,7 @@ public class OrderController {
     @Resource
     OrderService orderService;
 
-    @PostMapping("/addorder")
+    @PostMapping("/addOrder")
     public String addOrder(Order order, HttpSession session){
         orderService.addOrder(order);
         int uno = ((User)session.getAttribute("user")).getUno();

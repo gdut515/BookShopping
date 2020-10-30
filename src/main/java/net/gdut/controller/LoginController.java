@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//登录管理控制器
 @Controller
 public class LoginController {
-
     @Resource
     UserService userService;
 
@@ -72,11 +72,4 @@ public class LoginController {
         CookieUtil.deleteCookie(request, response,"cart");
         return "redirect:/toLogin";
     }
-
-    @PostMapping("/addUser")
-    public String addUser(User user){
-        userService.addUser(user);
-        return "login/addresult";
-    }
-
 }

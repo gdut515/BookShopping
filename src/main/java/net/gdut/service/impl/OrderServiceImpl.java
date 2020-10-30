@@ -17,7 +17,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void addOrder(Order order) {
         orderMapper.addOrder(order);
-        order.getOrderItems().forEach(this::addOrderItem);
     }
 
     @Override
@@ -28,7 +27,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order getOrder(int ono) {
         Order order = orderMapper.getOrder(ono);
-        order.setOrderItems(getOrderItemByOrder(order.getOno()));
         return order;
     }
 
