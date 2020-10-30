@@ -29,7 +29,7 @@
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager" />
         <property name="loginUrl" value="/toLogin" />    <!--没有登录的时候，跳转到这个页面-->
-        <property name="unauthorizedUrl" value="/nopermission" /> <!--当没有权限的时候，跳转到这个url-->
+        <property name="unauthorizedUrl" value="/noPermission" /> <!--当没有权限的时候，跳转到这个url-->
         <property name="filterChainDefinitions">
             <value>
                <!-- /admin/**=authc,roles["admin"]-->
@@ -43,7 +43,7 @@
         <property name="filters">
             <map>
                 <!--退出过滤器-->
-                <entry key="logOut" value-ref="systemLogoutFilter" />
+                <entry key="logout" value-ref="systemLogoutFilter" />
             </map>
         </property>
     </bean>

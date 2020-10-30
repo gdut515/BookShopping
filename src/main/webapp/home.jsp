@@ -6,5 +6,5 @@
 <head>
     <title>主页</title>
 </head>
-<meta http-equiv="refresh" content="10; url=/toLogin">
+<meta http-equiv="refresh" content="0; url=/toLogin">
 </html>

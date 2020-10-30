@@ -31,15 +31,7 @@ public class LoginController {
 
     @GetMapping("/toLogin")
     public String userLogin(Model model){
-        model.addAttribute("message", "您好！");
         return "login/login";
-    }
-
-    //添加用户
-    @PostMapping("/addUser")
-    public String addUser(User user){
-        userService.addUser(user);
-        return "login/addresult";
     }
 
     //用shiro提供的Realm拦截器来判断当前用户是否存在并授权
@@ -54,7 +46,7 @@ public class LoginController {
             //这里会加载自定义的realm
             //把令牌放到login里面进行查询,如果查询账号和密码时候匹配,如果匹配就把user对象获取出来,失败就抛异常
             SecurityUtils.getSubject().login(token);
-        } catch (UnknownAccountException e) {
+        } catch (Exception e) {
             //认证登录失败抛出异常
             model.addAttribute("message", "账号或密码错误");
             return "redirect:/toLogin";
@@ -64,9 +56,24 @@ public class LoginController {
         return "redirect:main/toMain";
     }
 
+    //注册
+    @GetMapping("/regist")
+    public String regist(){
+        return "redirect:/toRegist";
+    }
+
+    //添加用户
+    @PostMapping("/addUser")
+    public String addUser(User user){
+        userService.addUser(user);
+        return "login/addresult";
+    }
+
     //登出
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
+        //shiro认证退出
+        SecurityUtils.getSubject().logout();
         //清楚cookie缓存
         CookieUtil.deleteCookie(request, response,"user");
         CookieUtil.deleteCookie(request, response,"cart");
