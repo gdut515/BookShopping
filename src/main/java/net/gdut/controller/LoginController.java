@@ -80,4 +80,10 @@ public class LoginController {
         return "redirect:/toLogin";
     }
 
+    //当用户无权限时跳转的页面
+    @RequestMapping("/noPermission")
+    public String noPermission(Model model) {
+        model.addAttribute("message", "您无权访问该页面");
+        return "commons/error";
+    }
 }

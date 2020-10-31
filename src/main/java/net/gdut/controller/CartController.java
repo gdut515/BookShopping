@@ -84,7 +84,7 @@ public class CartController {
         }
         //清理购物车
         cartService.clear(request,response);
-        return "redirect:/order/toOrder?uno="+user.getUno();
+        return "redirect:/order/toOrder";
     }
 
 }

@@ -27,11 +27,7 @@ public class OrderController {
     @PostMapping("/addOrder")
     public String addOrder(Order order, HttpSession session){
         orderService.addOrder(order);
-        User user = (User)session.getAttribute("user");
-        int uno = user.getUno();
-        String address = user.getAddress();
-        //todo 加上地址
-        return "redirect:/order/toOrder/uno=" + uno;
+        return "redirect:/order/toOrder";
     }
 
     @RequestMapping("/toOrder")
