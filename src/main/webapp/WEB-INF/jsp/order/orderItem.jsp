@@ -7,16 +7,9 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
-    <shiro:hasAnyRoles name="admin">
-        <a type="button" class="btn btn-danger"
-           href="toAddBook">增加图书</a>
-    </shiro:hasAnyRoles>
-
     <shiro:user>
-        <form action="<%=request.getContextPath()%>/main/checkBook" method="post">
-            <input type="text" placeholder="请填写书籍名" name="bookName">
-            <input type="submit" class="btn btn-danger" value="查询书籍">
-        </form>
+        <a type="button" class="btn btn-danger"
+           href="/order/toOrder">返回订单列表</a>
     </shiro:user>
 
     <shiro:user>
@@ -35,12 +28,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <>
                         <c:forEach var="item" items="${orderItems}">
                             <tr>
                                 <td>${item.bname}</td>
                                 <td>${item.author}</td>
-                                <td>${item.cover}</td>
                                 <td>
                                     <img src="<%=request.getContextPath()%>/img/${item.cover}"
                                          style="width: 60px;height: 60px;"
@@ -57,5 +48,8 @@
             </div>
         </div>
     </shiro:user>
+    <%@include file="../commons/tail.jsp"%>
+    <script>
+    </script>
     </section>
 </div>

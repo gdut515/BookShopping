@@ -29,7 +29,7 @@ public class LoginController {
     }
 
     @GetMapping("/toLogin")
-    public String userLogin(Model model){
+    public String userLogin(){
         return "login/login";
     }
 
@@ -70,11 +70,12 @@ public class LoginController {
 
     //登出
     @RequestMapping("/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
+    public String logout(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) {
         //shiro认证退出
         SecurityUtils.getSubject().logout();
+        //清理session
+        session.setAttribute("user",null);
         //清楚cookie缓存
-        CookieUtil.deleteCookie(request, response,"user");
         CookieUtil.deleteCookie(request, response,"cart");
         return "redirect:/toLogin";
     }

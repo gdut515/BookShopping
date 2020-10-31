@@ -74,7 +74,7 @@
 <div class="container">
     <nav class="text-center">
         <ul class="pagination text-center">
-            <li><a href="<%=request.getContextPath()%>/main/toindex?pageNo=1"><span>«首页</span> </a></li>
+            <li><a href="<%=request.getContextPath()%>/main/toindex?pageNo=1"><span>首页</span> </a></li>
             <li>
                 <a href="<%=request.getContextPath()%>/main/toindex?pageNo=${(pageInfo.pageNum>1)?(pageInfo.pageNum-1):1}">上一页</a>
             </li>

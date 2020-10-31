@@ -45,7 +45,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderItemWithBook> getOrderItemWithBookByOrder(int ono) {
-        return orderMapper.getOrderItemWithBookByOrder(ono);
+        List<OrderItemWithBook> items = orderMapper.getOrderItemWithBookByOrder(ono);
+        System.out.println("获得订单相关书籍数量："+items.size());
+        return items;
     }
 
 }

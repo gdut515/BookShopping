@@ -35,9 +35,10 @@ public class OrderController {
     }
 
     @RequestMapping("/toOrder")
-    public String getAllOrders(@RequestParam(value = "uno")Integer uno, Model model){
-        System.out.println("用户"+uno+"查询所有订单");
-        List<Order> orders = orderService.getAllOrder(uno);
+    public String getAllOrders(Model model,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        System.out.println("用户"+user.getUno()+"查询所有订单");
+        List<Order> orders = orderService.getAllOrder(user.getUno());
         model.addAttribute("orders", orders);
         return "order/order";
     }
@@ -56,6 +57,6 @@ public class OrderController {
         model.addAttribute("orderItems", items);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");
-        return "commons/main";
+        return "order/orderItem";
     }
 }

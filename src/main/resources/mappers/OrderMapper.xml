@@ -27,7 +27,7 @@
     </select>
     <!--查询书籍列表（根据订单）-->
     <select id="getOrderItemWithBookByOrder" parameterType="int" resultType="net.gdut.bean.OrderItemWithBook">
-        SELECT tb_book.bname,tb_book.author,tb_book.cover,tb_book.price,tb_orderitem.quantity,tb_book.description,tb_book.category,tb_book.publisher,tb_book.age
+        SELECT bname,author,cover,price,quantity,description,category,publisher,age
         FROM tb_book,tb_orderitem WHERE tb_orderitem.ono = #{ono} and tb_book.bno = tb_orderitem.bno
   </select>
 </mapper>

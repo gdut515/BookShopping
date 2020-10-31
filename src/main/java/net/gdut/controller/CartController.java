@@ -6,6 +6,7 @@ import net.gdut.bean.OrderItem;
 import net.gdut.bean.User;
 import net.gdut.service.CartService;
 import net.gdut.service.OrderService;
+import net.gdut.utils.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +57,8 @@ public class CartController {
     }
 
     @RequestMapping(value = "/buy")
-    public String submitOrder(@RequestParam(value = "uno")Integer uno, HttpServletRequest request, HttpServletResponse response){
+    public String submitOrder(HttpServletRequest request, HttpServletResponse response,Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
         List<CartItem> list = cartService.getCartItemList(request, response);
         int cost = 0;
         for(CartItem item : list){
@@ -63,10 +66,10 @@ public class CartController {
         }
         //添加订单
         Order order = new Order();
-        order.setUno(uno);
+        order.setUno(user.getUno());
         order.setTime(new Timestamp(System.currentTimeMillis()));
         order.setState(0);//未支付状态
-        order.setAddress("空地址");
+        order.setAddress(user.getAddress());
         order.setCost(cost);
         int ono = orderService.addOrder(order);
         order.setOno(ono);
@@ -81,7 +84,7 @@ public class CartController {
         }
         //清理购物车
         cartService.clear(request,response);
-        return "redirect:/order/toOrder?uno="+uno;
+        return "redirect:/order/toOrder?uno="+user.getUno();
     }
 
 }
