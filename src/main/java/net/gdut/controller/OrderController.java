@@ -1,7 +1,9 @@
 package net.gdut.controller;
 
-import net.gdut.bean.Order;
-import net.gdut.bean.User;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import net.gdut.bean.*;
+import net.gdut.service.BookService;
 import net.gdut.service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,12 +21,17 @@ import java.util.List;
 public class OrderController {
     @Resource
     OrderService orderService;
+    @Resource
+    BookService bookService;
 
     @PostMapping("/addOrder")
     public String addOrder(Order order, HttpSession session){
         orderService.addOrder(order);
-        int uno = ((User)session.getAttribute("user")).getUno();
-        return "redirect:/order/toOrder/uno="+uno;
+        User user = (User)session.getAttribute("user");
+        int uno = user.getUno();
+        String address = user.getAddress();
+        //todo 加上地址
+        return "redirect:/order/toOrder/uno=" + uno;
     }
 
     @RequestMapping("/toOrder")
@@ -32,5 +40,22 @@ public class OrderController {
         List<Order> orders = orderService.getAllOrder(uno);
         model.addAttribute("orders", orders);
         return "order/order";
+    }
+
+    @RequestMapping("/openOrder")
+    public String s(@RequestParam(value = "ono")Integer ono,
+                    @RequestParam(value = "pageNo", required = false, defaultValue = "0") Integer pageNo,
+                    Model model){
+        PageHelper.startPage(pageNo,10);
+        //startPage后面紧跟的就是一个分页查询
+        List<OrderItemWithBook> items = orderService.getOrderItemWithBookByOrder(ono);
+        //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
+        //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
+        PageInfo pageInfo=new PageInfo(items,5);
+        items.forEach((orderItemWithBook)->{orderItemWithBook.setCost(orderItemWithBook.getPrice()*orderItemWithBook.getQuantity());});
+        model.addAttribute("orderItems", items);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("url", "toindex");
+        return "commons/main";
     }
 }

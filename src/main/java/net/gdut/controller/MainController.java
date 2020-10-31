@@ -42,7 +42,6 @@ public class MainController {
     //查询书籍并做出分页处理，并跳转到首页
     @RequestMapping(value = "/toIndex")
     public String toindex(@RequestParam(value = "pageNo", required = false, defaultValue = "0") Integer pageNo, Model model){
-        System.out.println("现在在浏览第"+pageNo+"页书籍");
         PageHelper.startPage(pageNo,10);
         //startPage后面紧跟的就是一个分页查询
         List<Book> books= bookService.getAllBook();

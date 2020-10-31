@@ -29,7 +29,7 @@
                             <h3>商品已成功加入购物车！</h3>
                             <span id="flashBuy" style="display: none">商品数量有限，请您尽快下单并付款！</span>
                             <h3>
-                                <a class="btn-1" href="/cart/cart" id="GotoShoppingCart">去购物车结算</a>
+                                <a class="btn-1" href="/cart/toCart" id="GotoShoppingCart">去购物车结算</a>
                             </h3>
                         </div>
                         <h3>

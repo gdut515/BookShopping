@@ -9,6 +9,7 @@ import net.gdut.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,23 +28,23 @@ public class CartController {
     @Autowired
     OrderService orderService;
 
-    @RequestMapping("/add/{itemId}")
-    public String addCartItem(@PathVariable Integer itemId, HttpServletRequest request, HttpServletResponse response) {
-        cartService.addCartItem(itemId, request, response);
-        return "cart/success";
-    }
-
-    @RequestMapping("/cart")
+    @RequestMapping("/toCart")
     public String toCart(HttpServletRequest request, HttpServletResponse response, Model model) {
         List<CartItem> list = cartService.getCartItemList(request, response);
         model.addAttribute("cartList", list);
         return "cart/cartList";
     }
 
+    @RequestMapping("/add/{itemId}")
+    public String addCartItem(@PathVariable Integer itemId, HttpServletRequest request, HttpServletResponse response) {
+        cartService.addCartItem(itemId, request, response);
+        return "cart/success";
+    }
+
     @RequestMapping("/delete/{itemId}")
     public String deleteCartItem(@PathVariable Integer itemId, HttpServletRequest request, HttpServletResponse response) {
         cartService.deleteCartItem(itemId, request, response);
-        return "redirect:/cart/cart";
+        return "redirect:/cart/toCart";
     }
 
     @RequestMapping("/updateQuantity/{itemId}/{itemQuantity}")
@@ -56,20 +57,26 @@ public class CartController {
     @RequestMapping(value = "/buy")
     public String submitOrder(@RequestParam(value = "uno")Integer uno, HttpServletRequest request, HttpServletResponse response){
         List<CartItem> list = cartService.getCartItemList(request, response);
+        int cost = 0;
+        for(CartItem item : list){
+            cost += item.getPrice();
+        }
         //添加订单
         Order order = new Order();
         order.setUno(uno);
-        order.setAddress("空地址");
         order.setTime(new Timestamp(System.currentTimeMillis()));
         order.setState(0);//未支付状态
-        orderService.addOrder(order);
+        order.setAddress("空地址");
+        order.setCost(cost);
+        int ono = orderService.addOrder(order);
+        order.setOno(ono);
         //添加订单项目
         List<OrderItem> orderItems = new ArrayList<>();
         for(CartItem item : list){
             OrderItem orderItem = new OrderItem();
+            orderItem.setOno(order.getOno());
             orderItem.setBno(item.getId());
             orderItem.setQuantity(item.getQuantity());
-            orderItem.setOno(order.getOno());
             orderService.addOrderItem(orderItem);
         }
         //清理购物车

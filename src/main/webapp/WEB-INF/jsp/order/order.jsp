@@ -16,18 +16,26 @@
                             <thead>
                             <tr>
                                 <th>订单号</th>
-                                <th>用户号</th>
-                                <th>书籍号</th>
-                                <th>数量</th>
+                                <th>总价</th>
+                                <th>订单时间</th>
+                                <th>状态</th>
+                                <th>地址</th>>
                             </tr>
                             </thead>
                             <tbody>
                             <c:forEach var="order" items="${orders}">
                                 <tr>
                                     <td>${order.ono}</td>
-                                    <td>${order.uno}</td>
-                                    <td>${order.bno}</td>
-                                    <td>${order.quantity}</td>
+                                    <td>${order.cost}</td>
+                                    <td>${order.time}</td>
+                                    <td>未支付</td>
+                                    <td>${order.address}</td>
+                                    <td>
+                                        <shiro:hasAnyRoles name="user">
+                                            <a type="button" class="btn btn-danger"
+                                               href="/order/openOrder?ono=${order.ono}&pageNo=1">查看订单</a>
+                                        </shiro:hasAnyRoles>
+                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -38,5 +46,8 @@
         </shiro:user>
     </section>
 </div>
+<%@include file="../commons/tail.jsp"%>
+<script>
+</script>
 </body>
 </html>

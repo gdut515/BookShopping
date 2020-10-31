@@ -1,7 +1,9 @@
 package net.gdut.service.impl;
 
+import net.gdut.bean.Book;
 import net.gdut.bean.Order;
 import net.gdut.bean.OrderItem;
+import net.gdut.bean.OrderItemWithBook;
 import net.gdut.mapper.OrderMapper;
 import net.gdut.service.OrderService;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,8 @@ public class OrderServiceImpl implements OrderService {
     OrderMapper orderMapper;
 
     @Override
-    public void addOrder(Order order) {
-        orderMapper.addOrder(order);
+    public int addOrder(Order order) {
+        return orderMapper.addOrder(order);
     }
 
     @Override
@@ -40,4 +42,10 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderItem> getOrderItemByOrder(int ono) {
         return orderMapper.getOrderItemByOrder(ono);
     }
+
+    @Override
+    public List<OrderItemWithBook> getOrderItemWithBookByOrder(int ono) {
+        return orderMapper.getOrderItemWithBookByOrder(ono);
+    }
+
 }

@@ -18,5 +18,6 @@ public class Order {
     private Timestamp time;
     private Integer state;
     private String address;
+    private Integer cost;
     private List<OrderItem> orderItems;
 }
