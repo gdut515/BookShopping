@@ -69,14 +69,14 @@
 <div class="container">
     <nav class="text-center">
         <ul class="pagination text-center">
-            <li><a href="<%=request.getContextPath()%>/main/toindex?pageNo=1"><span>首页</span> </a></li>
+            <li><a href="<%=request.getContextPath()%>/main/toIndex?pageNo=1"><span>首页</span> </a></li>
             <li>
-                <a href="<%=request.getContextPath()%>/main/toindex?pageNo=${(pageInfo.pageNum>1)?(pageInfo.pageNum-1):1}">上一页</a>
+                <a href="<%=request.getContextPath()%>/main/toIndex?pageNo=${(pageInfo.pageNum>1)?(pageInfo.pageNum-1):1}">上一页</a>
             </li>
             <li>
-                <a href="<%=request.getContextPath()%>/main/toindex?pageNo=${(pageInfo.pageNum<pageInfo.pages)?(pageInfo.pageNum+1):pageInfo.pages}">下一页</a>
+                <a href="<%=request.getContextPath()%>/main/toIndex?pageNo=${(pageInfo.pageNum<pageInfo.pages)?(pageInfo.pageNum+1):pageInfo.pages}">下一页</a>
             </li>
-            <li><a href="<%=request.getContextPath()%>/main/toindex?pageNo=${pageInfo.pages}"> <span>末页»</span></a>
+            <li><a href="<%=request.getContextPath()%>/main/toIndex?pageNo=${pageInfo.pages}"> <span>末页»</span></a>
             </li>
             <li class="pagespan">11/12</li>
         </ul>
