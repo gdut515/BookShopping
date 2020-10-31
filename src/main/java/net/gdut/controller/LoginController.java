@@ -65,7 +65,7 @@ public class LoginController {
     @PostMapping("/addUser")
     public String addUser(User user){
         userService.addUser(user);
-        return "addUserSuccess";
+        return "login/addUserSuccess";
     }
 
     //登出
