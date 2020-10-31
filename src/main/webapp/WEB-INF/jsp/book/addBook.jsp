@@ -6,7 +6,6 @@
     <div class="login-logo">
         <b>欢迎来到添加图书页面</b>
     </div>
-
     <div id="empAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -46,7 +45,7 @@
                         </div>
                         <input type="submit" value="提交" />
                     </form>
-                    <form action="/admin/toMain" method="get">
+                    <form action="/main/toMain" method="get">
                         <input type="submit" value="返回" />
                     </form>
                 </div>

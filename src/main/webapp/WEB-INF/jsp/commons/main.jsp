@@ -7,14 +7,9 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
-    <shiro:hasAnyRoles name="admin">
-    <a type="button" class="btn btn-danger"
-       href="toAddBook">增加图书</a>
-    </shiro:hasAnyRoles>
-
     <shiro:user>
     <form action="<%=request.getContextPath()%>/main/checkBook" method="post">
-        <input type="text" placeholder="请填写书籍名" name="bookName">
+        <input type="text" placeholder="请填写书籍名或作者名" name="bookName">
         <input type="submit" class="btn btn-danger" value="查询书籍">
     </form>
     </shiro:user>
