@@ -15,13 +15,12 @@
 
                 <div class="modal-body">
                     <form class="form-horizontal" action="/classification/add">
-                        <select name="no">
-                            <option value="1">书籍分类</option>
-                            <option value="2">出版商分类</option>
-                            <option value="3">年龄分类</option>
-                        </select>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">author</label>
+                            <select name="no">
+                                <option value="1">书籍分类</option>
+                                <option value="2">出版商分类</option>
+                                <option value="3">年龄分类</option>
+                            </select>
                             <div class="col-sm-10">
                                 <input type="text" name="name" class="form-control" placeholder="请输入条目名">
                                 <span class="help-block"></span>
@@ -29,7 +28,7 @@
                         </div>
                         <input type="submit" value="确定新增条目" />
                     </form>
-                    <form action="/main/toMain" method="get">
+                    <form action="/classification/toClassification" method="get">
                         <input type="submit" value="返回" />
                     </form>
                 </div>

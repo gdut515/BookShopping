@@ -8,6 +8,11 @@
 <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
+        <shiro:hasAnyRoles name="admin">
+            <a type="button" class="btn btn-danger"
+               href="<%=request.getContextPath()%>/classification/toAddClassification">添加条目</a>
+        </shiro:hasAnyRoles>
+
         <shiro:user>
             <div class="box box-info">
                 <div class="box-body" style="display: block;">

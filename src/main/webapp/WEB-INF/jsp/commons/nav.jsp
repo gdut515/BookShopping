@@ -76,22 +76,8 @@
                     </shiro:hasAnyRoles>
                     <shiro:hasAnyRoles name="admin">
                     <li>
-                        <a href="<%=request.getContextPath()%>/addBook/toAddBook">
-                            <i class="fa fa-dashboard"></i> <span>添加书籍</span>
-                        </a>
-                    </li>
-                    </shiro:hasAnyRoles>
-                    <shiro:hasAnyRoles name="admin">
-                    <li>
                         <a href="<%=request.getContextPath()%>/todo">
                             <i class="fa fa-dashboard"></i> <span>用户管理</span>
-                        </a>
-                    </li>
-                    </shiro:hasAnyRoles>
-                    <shiro:hasAnyRoles name="admin">
-                    <li>
-                        <a href="<%=request.getContextPath()%>/classification/addClassification">
-                            <i class="fa fa-dashboard"></i> <span>添加分类</span>
                         </a>
                     </li>
                     </shiro:hasAnyRoles>

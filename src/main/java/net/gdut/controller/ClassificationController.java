@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 @RequestMapping("/classification")
 public class ClassificationController{
     @Resource
     ClassificationService service;
+
+    @GetMapping("/toAddClassification")
+    public String toAddClassification(HttpSession session){
+        return "classification/addClassification";
+    }
 
     @GetMapping("/toClassification")
     public String toClassification(HttpSession session){
@@ -41,20 +47,25 @@ public class ClassificationController{
     }
 
     @RequestMapping("/add")
-    public String add(Model model, HttpSession session){
-        int classification = (int)model.getAttribute("classification");
-        String name = (String)model.getAttribute("name");
-        if(classification==1){
+    public String add(@RequestParam(value = "no")Integer no,
+                      @RequestParam(value = "name")String name){
+        if(no==1){
+            String str = null;
+            try {
+                str = new String(name.getBytes("ISO-8859-1"), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             CategoryItem item = new CategoryItem();
-            item.setName(name);
+            item.setName(str);
             service.addCategoryItem(item);
         }
-        else if(classification==2){
+        else if(no==2){
             PublisherItem item = new PublisherItem();
             item.setName(name);
             service.addPublisherItem(item);
         }
-        else if(classification==3){
+        else if(no==3){
             AgeItem item = new AgeItem();
             item.setName(name);
             service.addAgeItem(item);
