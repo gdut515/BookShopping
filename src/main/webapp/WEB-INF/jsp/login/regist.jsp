@@ -15,6 +15,7 @@
 <form action="/addUser" method="post" align="center">
     姓名：<input type="text" name="uname" size="20" value="" maxlength="20"><br/>
     密码：<input type="password" name="password" size="20" value="" maxlength="20"><br/><br/>
+    收货地址：<input type="address" name="address" size="20" value="" maxlength="20"><br/><br/>
     <input type="submit" name="submit" value="注册">
 </form>
 </body>
