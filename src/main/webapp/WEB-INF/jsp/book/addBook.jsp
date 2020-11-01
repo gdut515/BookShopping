@@ -43,6 +43,24 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
+                        <div>
+                            <select>
+                                <option value="值">选项内容</option>
+                                <option value="值">选项内容</option>
+                            </select>
+                        </div>
+                        <div>
+                        <select>
+                            <option value="值">选项内容</option>
+                            <option value="值">选项内容</option>
+                        </select>
+                        </div>
+                        <div>
+                        <select>
+                            <option value="值">选项内容</option>
+                            <option value="值">选项内容</option>
+                        </select>
+                        </div>
                         <input type="submit" value="提交" />
                     </form>
                     <form action="/main/toMain" method="get">

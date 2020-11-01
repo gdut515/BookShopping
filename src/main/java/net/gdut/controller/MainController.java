@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -48,7 +47,7 @@ public class MainController {
         model.addAttribute("books", books);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");
-        return "commons/main";
+        return "main/main";
     }
 
     //通过书籍名模糊查询书籍
@@ -56,6 +55,6 @@ public class MainController {
     public String checkBook(String bookName,Model model){
         List<Book> books=bookService.getAllBookByName(bookName);
         model.addAttribute("books", books);
-        return "commons/main";
+        return "main/main";
     }
 }

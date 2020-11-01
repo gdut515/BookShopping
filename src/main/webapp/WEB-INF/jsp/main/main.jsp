@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="nav.jsp"%>
+<%@include file="../commons/nav.jsp"%>
 <%@ page isELIgnored="false" %>
 
 <!-- Content Wrapper. Contains page content -->
@@ -82,9 +82,8 @@
         </ul>
     </nav>
 </div>
-</div>
-<jsp:include page="tail.jsp"/>
 
+<jsp:include page="../commons/tail.jsp"/>
 
         <script>
         function showChoose() {

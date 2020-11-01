@@ -55,9 +55,8 @@
             </div>
         </section>
     </div>
-</div>
-<%@include file="../commons/tail.jsp"%>
-<script>
-</script>
+
+    <%@include file="../commons/tail.jsp"%>
+
 </body>
 </html>

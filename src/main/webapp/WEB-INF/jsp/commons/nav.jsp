@@ -83,15 +83,22 @@
                     </shiro:hasAnyRoles>
                     <shiro:hasAnyRoles name="admin">
                     <li>
-                        <a href="<%=request.getContextPath()%>/">
+                        <a href="<%=request.getContextPath()%>/todo">
                             <i class="fa fa-dashboard"></i> <span>用户管理</span>
                         </a>
                     </li>
                     </shiro:hasAnyRoles>
                     <shiro:hasAnyRoles name="admin">
                     <li>
-                        <a href="<%=request.getContextPath()%>/">
-                            <i class="fa fa-dashboard"></i> <span>分类管理</span>
+                        <a href="<%=request.getContextPath()%>/classification/addClassification">
+                            <i class="fa fa-dashboard"></i> <span>添加分类</span>
+                        </a>
+                    </li>
+                    </shiro:hasAnyRoles>
+                    <shiro:hasAnyRoles name="admin">
+                    <li>
+                        <a href="<%=request.getContextPath()%>/classification/toClassification">
+                            <i class="fa fa-dashboard"></i> <span>分类</span>
                         </a>
                     </li>
                     </shiro:hasAnyRoles>

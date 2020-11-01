@@ -32,14 +32,14 @@
 
     <!--查询分类条目列表-->
     <select id="getAllCategoryItem" resultType="net.gdut.bean.classification.CategoryItem">
-        select * from tb_category
+    select * from tb_category
     </select>
     <!--查询出版商条目列表-->
     <select id="getAllPublisherItem" resultType="net.gdut.bean.classification.PublisherItem">
-        select * from tb_publisher
+    select * from tb_publisher
     </select>
     <!--查询年龄条目列表-->
     <select id="getAllAgeItem" resultType="net.gdut.bean.classification.AgeItem">
-        select * from tb_age
+    select * from tb_age
     </select>
 </mapper>
