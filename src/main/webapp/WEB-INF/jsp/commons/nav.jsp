@@ -76,7 +76,7 @@
                     </shiro:hasAnyRoles>
                     <shiro:hasAnyRoles name="admin">
                     <li>
-                        <a href="<%=request.getContextPath()%>/todo">
+                        <a href="<%=request.getContextPath()%>/user/toUser">
                             <i class="fa fa-dashboard"></i> <span>用户管理</span>
                         </a>
                     </li>

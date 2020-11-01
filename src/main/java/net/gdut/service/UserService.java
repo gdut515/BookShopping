@@ -14,4 +14,8 @@ public interface UserService {
     public User getUser(String uname);
     //查询用户权限：user/admin
     public List<String> getRole(String uname);
+
+    void deleteUser(Integer uno);
+
+    List<User> getAllUsers();
 }

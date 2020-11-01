@@ -16,19 +16,18 @@
                             <thead>
                             <tr>
                                 <th>账号名</th>
-                                <th>密码</th>
                                 <th>身份</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="item" items="${categoryItems}">
+                            <c:forEach var="item" items="${users}">
                                 <tr>
-                                    <td>书籍分类</td>
-                                    <td>${item.name}</td>
+                                    <td>${item.uname}</td>
+                                    <td>${item.authority}</td>
                                     <td>
                                         <shiro:hasAnyRoles name="admin">
                                             <a type="button" class="btn btn-danger"
-                                               href="delete?classification=1&no=${item.no}">删除条目</a>
+                                               href="/user/delete?uno=${item.uno}">删除用户</a>
                                         </shiro:hasAnyRoles>
                                     </td>
                                 </tr>

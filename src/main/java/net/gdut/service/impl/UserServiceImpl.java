@@ -32,4 +32,14 @@ public class UserServiceImpl implements UserService {
     public List<String> getRole(String uname) {
         return userMapper.getRole(uname);
     }
+
+    @Override
+    public void deleteUser(Integer uno) {
+        userMapper.deleteUser(uno);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userMapper.getAllUsers();
+    }
 }

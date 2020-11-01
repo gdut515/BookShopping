@@ -8,9 +8,17 @@
     <insert id="addUser" parameterType="net.gdut.bean.User">
         insert into tb_user (uname,password,authority) values (#{uname},#{password},'user')
     </insert>
+    <!--移出用户-->
+    <delete id="deleteUser" parameterType="int">
+       delete from tb_user where uno = #{uno}
+    </delete>
     <!--查询用户-->
     <select id="getUser" parameterType="String" resultType="net.gdut.bean.User">
         select * from tb_user where uname = #{uname};
+    </select>
+    <!--查询用户列表-->
+    <select id="getAllUsers" resultType="net.gdut.bean.User">
+        select * from tb_user;
     </select>
     <!--查询用户权限-->
     <select id="getRole" parameterType="String" resultType="String">

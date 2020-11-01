@@ -16,4 +16,8 @@ public interface UserMapper {
     public User getUser(String uname);
     //查询用户权限
     public List<String> getRole(String uname);
+
+    void deleteUser(Integer uno);
+
+    List<User> getAllUsers();
 }
