@@ -59,4 +59,19 @@ public class ClassificationImpl implements ClassificationService {
     public List<AgeItem> getAllAgeItem() {
         return mapper.getAllAgeItem();
     }
+
+    @Override
+    public CategoryItem getCategoryItem(int category) {
+        return mapper.getCategoryItem(category);
+    }
+
+    @Override
+    public PublisherItem getPublisherItem(int publisher) {
+        return mapper.getPublisherItem(publisher);
+    }
+
+    @Override
+    public AgeItem getAgeItem(int age) {
+        return mapper.getAgeItem(age);
+    }
 }

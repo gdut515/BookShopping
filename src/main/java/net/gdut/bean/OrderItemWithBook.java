@@ -13,6 +13,9 @@ import lombok.ToString;
 public class OrderItemWithBook {
     private String bname;
     private String author;
+    private String categoryName;
+    private String publisherName;
+    private String ageName;
     private String cover;
     private Double price;
     private Integer quantity;

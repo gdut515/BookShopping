@@ -6,15 +6,15 @@
 <mapper namespace="net.gdut.mapper.ClassificationMapper">
     <!--添加书籍分类条目-->
     <insert id="addCategoryItem" parameterType="net.gdut.bean.classification.CategoryItem">
-        insert into tb_category (name) values (#{name})
+        insert into tb_category (categoryName) values (#{categoryName})
     </insert>
     <!--添加出版商条目-->
     <insert id="addPublisherItem" parameterType="net.gdut.bean.classification.PublisherItem">
-        insert into tb_publisher (name)  values (#{name})
+        insert into tb_publisher (publisherName)  values (#{publisherName})
     </insert>
     <!--添加年龄条目-->
     <insert id="addAgeItem" parameterType="net.gdut.bean.classification.AgeItem">
-        insert into tb_age (name) values (#{name})
+        insert into tb_age (ageName) values (#{ageName})
     </insert>
 
     <!--删除书籍分类条目-->
@@ -42,4 +42,17 @@
     <select id="getAllAgeItem" resultType="net.gdut.bean.classification.AgeItem">
     select * from tb_age
     </select>
+
+    <select id="getCategoryItem" parameterType="int" resultType="net.gdut.bean.classification.CategoryItem">
+    select * from tb_category where no = #{no}
+    </select>
+    <!--查询出版商条目列表-->
+    <select id="getPublisherItem" parameterType="int" resultType="net.gdut.bean.classification.PublisherItem">
+    select * from tb_publisher where no = #{no}
+    </select>
+    <!--查询年龄条目列表-->
+    <select id="getAgeItem" parameterType="int"  resultType="net.gdut.bean.classification.AgeItem">
+    select * from tb_age where no = #{no}
+    </select>
+
 </mapper>

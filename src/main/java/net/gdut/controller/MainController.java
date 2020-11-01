@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import net.gdut.bean.Book;
 import net.gdut.service.BookService;
+import net.gdut.service.ClassificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 //主页面功能
@@ -19,6 +21,8 @@ import java.util.List;
 public class MainController {
     @Autowired
     BookService bookService;
+    @Resource
+    ClassificationService classificationService;
 
     @GetMapping("/toMain")
     public String toMain(){
@@ -41,6 +45,11 @@ public class MainController {
         PageHelper.startPage(pageNo,10);
         //startPage后面紧跟的就是一个分页查询
         List<Book> books= bookService.getAllBook();
+        books.forEach((Book book)->{
+            book.setCategoryName(classificationService.getCategoryItem(book.getCategory()).getCategoryName());
+            book.setPublisherName(classificationService.getPublisherItem(book.getPublisher()).getPublisherName());
+            book.setAgeName(classificationService.getAgeItem(book.getAge()).getAgeName());
+        });
         //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
         //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
         PageInfo pageInfo=new PageInfo(books,5);
@@ -54,6 +63,11 @@ public class MainController {
     @RequestMapping(value = "/checkBook")
     public String checkBook(String bookName,Model model){
         List<Book> books=bookService.getAllBookByName(bookName);
+        books.forEach((Book book)->{
+            book.setCategoryName(classificationService.getCategoryItem(book.getCategory()).getCategoryName());
+            book.setPublisherName(classificationService.getPublisherItem(book.getPublisher()).getPublisherName());
+            book.setAgeName(classificationService.getAgeItem(book.getAge()).getAgeName());
+        });
         model.addAttribute("books", books);
         return "main/main";
     }

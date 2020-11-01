@@ -28,4 +28,10 @@ public interface ClassificationMapper {
     public List<PublisherItem> getAllPublisherItem();
     //查询年龄分类条目列表
     public List<AgeItem> getAllAgeItem();
+
+    CategoryItem getCategoryItem(int category);
+
+    PublisherItem getPublisherItem(int publisher);
+
+    AgeItem getAgeItem(int age);
 }

@@ -11,5 +11,5 @@ import lombok.ToString;
 @ToString
 public class PublisherItem {
     private Integer no;
-    private String name;
+    private String publisherName;
 }

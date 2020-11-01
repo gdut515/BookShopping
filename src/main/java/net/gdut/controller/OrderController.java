@@ -33,7 +33,6 @@ public class OrderController {
     @RequestMapping("/toOrder")
     public String getAllOrders(Model model,HttpSession session){
         User user = (User) session.getAttribute("user");
-        System.out.println("用户"+user.getUno()+"查询所有订单");
         List<Order> orders = orderService.getAllOrder(user.getUno());
         model.addAttribute("orders", orders);
         return "order/order";
@@ -49,7 +48,10 @@ public class OrderController {
         //使用PageInfo包装查询后的结果，只需将pageInfo交给页面就行了
         //封装了详细的分页信息，包括有我们查询的数据.连续显示的页数
         PageInfo pageInfo=new PageInfo(items,5);
-        items.forEach((orderItemWithBook)->{orderItemWithBook.setCost(orderItemWithBook.getPrice()*orderItemWithBook.getQuantity());});
+        items.forEach((orderItemWithBook)->{
+            orderItemWithBook.setCost(
+                    orderItemWithBook.getPrice()*orderItemWithBook.getQuantity());
+        });
         model.addAttribute("orderItems", items);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("url", "toindex");

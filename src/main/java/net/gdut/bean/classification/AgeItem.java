@@ -11,5 +11,5 @@ import lombok.ToString;
 @ToString
 public class AgeItem {
     private Integer no;
-    private String name;
+    private String ageName;
 }

@@ -7,7 +7,6 @@ import net.gdut.service.ClassificationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -49,25 +48,25 @@ public class ClassificationController{
     @RequestMapping("/add")
     public String add(@RequestParam(value = "no")Integer no,
                       @RequestParam(value = "name")String name){
+        String str = null;
+        try {
+            str = new String(name.getBytes("ISO-8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         if(no==1){
-            String str = null;
-            try {
-                str = new String(name.getBytes("ISO-8859-1"), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
             CategoryItem item = new CategoryItem();
-            item.setName(str);
+            item.setCategoryName(str);
             service.addCategoryItem(item);
         }
         else if(no==2){
             PublisherItem item = new PublisherItem();
-            item.setName(name);
+            item.setPublisherName(str);
             service.addPublisherItem(item);
         }
         else if(no==3){
             AgeItem item = new AgeItem();
-            item.setName(name);
+            item.setAgeName(str);
             service.addAgeItem(item);
         }
         else{

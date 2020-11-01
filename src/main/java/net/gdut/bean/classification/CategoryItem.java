@@ -11,5 +11,5 @@ import lombok.ToString;
 @ToString
 public class CategoryItem {
     private Integer no;
-    private String name;
+    private String categoryName;
 }

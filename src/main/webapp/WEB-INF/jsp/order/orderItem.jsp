@@ -21,6 +21,9 @@
                         <tr>
                             <th>书名</th>
                             <th>作者</th>
+                            <th>书籍分类</th>
+                            <th>出版商分类</th>
+                            <th>年龄分类</th>
                             <th>封面</th>
                             <th>数量</th>
                             <th>单价</th>
@@ -32,6 +35,9 @@
                             <tr>
                                 <td>${item.bname}</td>
                                 <td>${item.author}</td>
+                                <td>${item.categoryName}</td>
+                                <td>${item.publisherName}</td>
+                                <td>${item.ageName}</td>
                                 <td>
                                     <img src="<%=request.getContextPath()%>/img/${item.cover}"
                                          style="width: 60px;height: 60px;"

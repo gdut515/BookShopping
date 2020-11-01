@@ -19,4 +19,7 @@ public class Book {
     private Integer category;
     private Integer publisher;
     private Integer age;
+    private String categoryName;
+    private String publisherName;
+    private String ageName;
 }

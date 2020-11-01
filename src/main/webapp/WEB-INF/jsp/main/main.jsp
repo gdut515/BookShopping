@@ -29,6 +29,9 @@
                             <th>序号</th>
                             <th>书名</th>
                             <th>作者</th>
+                            <th>书籍分类</th>
+                            <th>出版商分类</th>
+                            <th>年龄分类</th>
                             <th>封面</th>
                             <th>价格</th>
                             <th>描述</th>
@@ -41,6 +44,9 @@
                                 <td>${book.bno}</td>
                                 <td>${book.bname}</td>
                                 <td>${book.author}</td>
+                                <td>${book.categoryName}</td>
+                                <td>${book.publisherName}</td>
+                                <td>${book.ageName}</td>
                                 <td>
                                     <img src="<%=request.getContextPath()%>/img/${book.cover}"
                                          style="width: 60px;height: 60px;"
