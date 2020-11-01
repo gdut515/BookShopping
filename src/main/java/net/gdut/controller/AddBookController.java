@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 
 //书籍管理控制器
 @Controller
@@ -24,7 +25,7 @@ public class AddBookController {
     ClassificationService classificationService;
 
     @GetMapping("/toAddBook")
-    public String toBookManager(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session){
+    public String toBookManager(HttpSession session){
         System.out.println("书籍分类条目有："+classificationService.getAllCategoryItem().size());
         session.setAttribute("categoryItems",classificationService.getAllCategoryItem());
         session.setAttribute("publisherItems",classificationService.getAllPublisherItem());
@@ -33,7 +34,14 @@ public class AddBookController {
     }
 
     @RequestMapping(value = "/addBook")
-    public String addBook(Book book) {
+    public String addBook(Book book){
+        try {
+            book.setAuthor(new String(book.getAuthor().getBytes("ISO-8859-1"), "UTF-8"));
+            book.setBname(new String(book.getBname().getBytes("ISO-8859-1"), "UTF-8"));
+            book.setDescription(new String(book.getDescription().getBytes("ISO-8859-1"), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         bookService.addBook(book);
         return "redirect:/main/toMain";
     }
