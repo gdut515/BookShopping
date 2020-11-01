@@ -29,7 +29,7 @@
                             <c:forEach var="item" items="${categoryItems}">
                                 <tr>
                                     <td>书籍分类</td>
-                                    <td>${item.name}</td>
+                                    <td>${item.categoryName}</td>
                                     <td>
                                         <shiro:hasAnyRoles name="admin">
                                             <a type="button" class="btn btn-danger"
@@ -41,7 +41,7 @@
                             <c:forEach var="item" items="${publisherItems}">
                                 <tr>
                                     <td>出版商分类</td>
-                                    <td>${item.name}</td>
+                                    <td>${item.publisherName}</td>
                                     <td>
                                         <shiro:hasAnyRoles name="admin">
                                             <a type="button" class="btn btn-danger"
@@ -53,7 +53,7 @@
                             <c:forEach var="item" items="${ageItems}">
                                 <tr>
                                     <td>年龄分类</td>
-                                    <td>${item.name}</td>
+                                    <td>${item.ageName}</td>
                                     <td>
                                         <shiro:hasAnyRoles name="admin">
                                             <a type="button" class="btn btn-danger"
