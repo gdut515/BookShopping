@@ -57,7 +57,7 @@
                                 <td>
                                     <shiro:hasAnyRoles name="admin">
                                     <a type="button" class="btn btn-danger"
-                                       href="/admin/deleteBook/${book.bno}">下架该书籍</a>
+                                       href="/main/deleteBook/${book.bno}">下架该书籍</a>
                                     </shiro:hasAnyRoles>
                                     <shiro:hasAnyRoles name="user">
                                         <a type="button" class="btn btn-danger"

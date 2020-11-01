@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../commons/head.jsp"%>
+<%@ page isELIgnored="false" %>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="login-box">
     <div class="login-logo">
@@ -13,7 +16,7 @@
                     <h4 class="modal-title" id="myModalLabel">书籍添加</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="/admin/addBook">
+                    <form class="form-horizontal" action="/addBook/addBook">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">author</label>
                             <div class="col-sm-10">
@@ -43,24 +46,25 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div>
-                            <select>
-                                <option value="值">选项内容</option>
-                                <option value="值">选项内容</option>
+
+                        <div class="form-group">
+                            <select name="category">
+                                <c:forEach var="item" items="${categoryItems}">
+                                    <option value="${item.no}">${item.categoryName}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="publisher">
+                                <c:forEach items="${publisherItems}" var="item">
+                                    <option value="${item.no}">${item.publisherName}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="age">
+                                <c:forEach items="${ageItems}" var="item">
+                                    <option value="${item.no}">${item.ageName}</option>
+                                </c:forEach>
                             </select>
                         </div>
-                        <div>
-                        <select>
-                            <option value="值">选项内容</option>
-                            <option value="值">选项内容</option>
-                        </select>
-                        </div>
-                        <div>
-                        <select>
-                            <option value="值">选项内容</option>
-                            <option value="值">选项内容</option>
-                        </select>
-                        </div>
+
                         <input type="submit" value="提交" />
                     </form>
                     <form action="/main/toMain" method="get">
